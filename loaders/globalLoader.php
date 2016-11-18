@@ -1,16 +1,22 @@
 <?php 
 
-	$dir = __DIR__.'/loaders';
+	$dir = __DIR__.'/';
 	$files = scandir($dir);
+	$noLoad = array(
+		'.',
+		'..',
+		basename(__FILE__),
+		'security.php'
+	);
 
 	foreach ($files as $key => $file) {
-		if($file == '.' || $file == '..'){
+		if(in_array($file, $noLoad)) {
 			unset($files[$key]);
 		}
 	}	
 
 	foreach ($files as $key => $file) {
-		require __DIR__.'/loaders/'.$file;
+		require __DIR__.'/'.$file;
 	}
-	
+
 ?>
