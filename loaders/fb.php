@@ -2,7 +2,7 @@
 
 	MyController::$fb = new Facebook\Facebook([
 	  'app_id' => '325674481145757',
-	  'app_secret' => '',
+	  'app_secret' => 'b07143c0ac82e515af99ca29cd3b1c55',
 	  'default_graph_version' => 'v2.8',
 	]);
 

@@ -1,14 +1,17 @@
 <?php  
 	class MyController {
 
-		protected static $bdd;
-		protected static $fb;
+		public static $bdd;
+		public static $fb;
+		public static $twig;
 
 		public function __construct() {
 
 		}
 
-		
+		public static function loadTemplate($variables) {
+			echo self::$twig->render('login.tpl', $variables );
+		}
 
 	}
 ?>
