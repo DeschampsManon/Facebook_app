@@ -1,0 +1,76 @@
+/********************* MAIN *********************/
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+* {
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: Arial, Helvetica, sans-serif; }
+
+a {
+  display: block;
+  text-decoration: none; }
+
+ul,
+ol {
+  list-style-type: none; }
+
+img,
+input,
+textarea,
+label,
+video {
+  display: block; }
+
+fieldset {
+  border-color: transparent; }
+
+/********************* LAYOUT *********************/
+.clearfix:before,
+.clearfix:after {
+  content: ' ';
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.container {
+  margin: 0 auto;
+  max-width: 128rem;
+  width: 90%;
+  display: block;
+  overflow: hidden; }
+
+.col {
+  float: left;
+  padding: 0 1rem; }
+
+/********************* WIDTH *********************/
+.total {
+  width: 100%; }
+
+.moitie {
+  width: 50%; }
+
+.tiers {
+  width: 33.3%; }
+
+.deux-tiers {
+  width: 66.7%; }
+
+.quart {
+  width: 25%; }
+
+.trois-quarts {
+  width: 75%; }
+
+/*# sourceMappingURL=main.css.css.map */

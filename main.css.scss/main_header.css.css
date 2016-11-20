@@ -1,0 +1,23 @@
+#main-header {
+  background-color: #231f20; }
+
+#main-header ul {
+  width: 533.5px;
+  margin: 0 auto; }
+
+#main-header ul li {
+  float: left; }
+
+#main-header ul li a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem 6rem;
+  color: #fff;
+  opacity: .5; }
+
+#main-header ul li a:hover,
+#main-header ul li a:active,
+#main-header ul li a:focus {
+  opacity: 1; }
+
+/*# sourceMappingURL=main_header.css.css.map */

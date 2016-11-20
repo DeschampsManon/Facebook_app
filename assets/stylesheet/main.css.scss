@@ -58,8 +58,10 @@ fieldset{
 
 .container {
 	margin: 0 auto;
-	max-width: 128rem;
+	max-width: 80rem;
 	width: 90%;
+	display: block;
+	overflow: hidden;
 }
 
 .col {
@@ -92,3 +94,23 @@ fieldset{
 .trois-quarts {
 	width: 75%;
 }
+
+/********************* OTHER *********************/
+
+.hidden{
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
