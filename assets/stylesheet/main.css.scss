@@ -19,6 +19,8 @@ html {
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1.5rem;
+	color: #231f20;
 }
 
 a{
@@ -37,12 +39,43 @@ textarea,
 label,
 video{
 	display:block;
+	width: 100%;
+	border-radius: 0;
+}
+
+input,
+textarea{
+	outline: none;
+	border:1px solid transparent;
+	color:#fff;
+}
+
+input{
+	height: 4rem;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+   	appearance: none;
+   	padding: 0 1.2rem;
+   	background-color: rgba(167, 169, 172, .08);
 }
 
 fieldset{
 	border-color:transparent;
 }
 
+h1,
+h2,
+h3{
+	font-weight: lighter;
+}
+
+h2{
+	color:#fff;
+	text-transform: uppercase;
+    font-size: 1.3rem;
+    margin-top: 1.4rem;
+    margin-left: 1rem;
+}
 
 /********************* LAYOUT *********************/ 
 
@@ -95,11 +128,111 @@ fieldset{
 	width: 75%;
 }
 
+/********************* TEXT *********************/
+
+.uppercase-text{
+	text-transform: uppercase;
+}
+
+/********************* SPACING *********************/
+
+.no-padding-left{
+	padding-left: 0
+}
+
+.no-padding-right{
+	padding-right: 0
+}
+
+.padding-top-bot-20{
+	padding: 2rem 0;
+}
+
+.margin-bot-20{
+	margin-bottom: 20px; 
+}
+
+/********************* BUTTONS *********************/
+
+.btn{
+	border:1px solid #fff;
+	color:#fff;
+	text-align: center;
+	font-size: 1.7rem;
+	padding: 1rem;
+	width: 25.5rem;
+	margin: 0 auto;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active{
+	background-color: #fff;
+	color: rgba(35, 31, 32, 1);
+}
+
+/********************* BACKGROUND *********************/
+
+.dark-bg{
+	background-color: rgba(35, 31, 32, 1);
+}
+
+/********************* GALERY *********************/
+
+.galery .details{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 1rem;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s linear;
+}
+
+.galery .details:hover{
+	opacity: 1;
+}
+
+.galery .count-likes{
+	float:right;
+	margin: 1rem;
+	background-color: #fff;
+	font-size: 1.6rem; 
+	padding: .4rem .8rem .2rem .8rem;
+	border-radius: 2px;
+}
+
+.galery .count-likes .fa-heart{
+	color: #f2142b;
+}
+
+.galery .user{
+	position: absolute;
+	bottom: 1rem;
+	left: 2rem;
+}
+
+.galery .user img{
+	width: 4rem;
+	height: 4rem;
+	border-radius: 50%; 
+}
+
 /********************* OTHER *********************/
 
 .hidden{
 	display: none;
 }
+
+.relative{
+	position: relative;
+}
+
+.clickable{
+	cursor: pointer;
+}
+
 
 
 
