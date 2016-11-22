@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
     {% block head %}
-        <head>
+    <head>
+        
             <meta charset="utf-8">
             <title>{% block title %}{% endblock %} - Project Name</title>
             <meta name="description" content="{% block description %}{% endblock %}">
@@ -12,13 +13,18 @@
             <link rel="stylesheet" href="/assets/stylesheet/main_header.css.scss">
             <link rel="stylesheet" href="/assets/stylesheet/main_footer.css.scss">
             <link rel="stylesheet" href="/assets/stylesheet/filter.css.scss">
-        </head>
+    </head>
     {% endblock %}
     <body>
         {% block header %}
         <header id="main-header" class="clearfix">
-            <div class="container">
-                <nav>
+            <article id="logo">
+                <div class="container">
+                    <h1>pardon maman</h1>
+                </div>
+            </article>
+            <nav class="dark-bg">
+                <div class="container">
                     <ul class="clearfix">
                         <li>
                             <a href="/views/home.php" title="home">Accueil</a>
@@ -30,8 +36,8 @@
                             <a href="/views/participate.php" title="participate">Participer</a>
                         </li>
                     </ul>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </header>
         {% endblock %}
         {% block content %}{% endblock %}
@@ -53,12 +59,9 @@
                     </ul>
                 </nav>
             </div>
-            
             <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
             <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
-            
-            </footer>
-            {% endblock %}
-        </div>
+        </footer>
+        {% endblock %}
     </body>
 </html>
