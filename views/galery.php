@@ -12,14 +12,20 @@
             <link rel="stylesheet" href="/assets/stylesheet/main_header.css.scss">
             <link rel="stylesheet" href="/assets/stylesheet/main_footer.css.scss">
             <link rel="stylesheet" href="/assets/stylesheet/filter.css.scss">
-            <link rel="stylesheet" href="/assets/stylesheet/galery.css.scss">
         <!-- {% endblock %} -->
     </head>
     <body>
         <header id="main-header" class="clearfix">
+
             <!-- {% block header %} -->
-            <div class="container">
-            	<nav>
+            <article id="logo">
+            	<div class="container">
+		            <h1>pardon maman</h1>
+		       	</div>
+            </article>
+            
+        	<nav class="dark-bg">
+        		<div class="container">
             		<ul class="clearfix">
             			<li>
             				<a href="/views/home.php" title="home">Accueil</a>
@@ -31,8 +37,9 @@
             				<a href="/views/participate.php" title="participate">Participer</a>
             			</li>
             		</ul>
-            	</nav>
-            </div>
+            	</div>
+        	</nav>
+        
             <!-- {% endblock %} -->
         </header>
         <!-- {% block content %} -->

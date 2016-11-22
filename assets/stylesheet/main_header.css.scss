@@ -1,5 +1,8 @@
 #main-header{
-	background-color: rgba(35, 31, 32, .95);
+	background-image:url('../images/header.png');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;   
 }
 
 #main-header ul{
@@ -22,4 +25,17 @@
 #main-header ul li a:active,
 #main-header ul li a:focus{
 	opacity: 1;
+}
+
+#logo{
+	background-color: rgba(0,0,0,.5);
+	padding:6rem 0;
+}
+
+#logo h1{
+	font-family: impact;
+	color:#fff;
+	text-align: center;
+	text-transform: uppercase;
+	font-size: 5.8rem;
 }
