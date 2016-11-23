@@ -32,7 +32,7 @@ html {
 body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 1.5rem;
-	color: #231f20;
+	color: #fff;
 	background-color: #000;
 }
 
@@ -83,11 +83,14 @@ h3{
 }
 
 h2{
-	color:#fff;
 	text-transform: uppercase;
     font-size: 1.3rem;
     margin-top: 1.4rem;
     margin-left: 1rem;
+}
+
+p{
+	line-height: 2.5rem;
 }
 
 /********************* LAYOUT *********************/ 
@@ -144,6 +147,14 @@ h2{
 
 .uppercase-text{
 	text-transform: uppercase;
+}
+
+.center-text{
+	text-align: center;
+}
+
+.text-16px{
+	font-size: 1.6rem;
 }
 
 /********************* SPACING *********************/
@@ -213,6 +224,7 @@ h2{
 	font-size: 1.6rem; 
 	padding: .4rem .8rem .2rem .8rem;
 	border-radius: 2px;
+	color:#231f20;
 }
 
 .galery .count-likes .fa-heart{
