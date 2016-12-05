@@ -1,5 +1,4 @@
 <?php 
-	
 	require_once __DIR__.'/../vendor/twig/twig/lib/Twig/Autoloader.php';
 	require_once __DIR__.'/../vendor/twig/extensions/lib/Twig/Extensions/Autoloader.php';
     Twig_Autoloader::register();

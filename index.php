@@ -1,6 +1,4 @@
-
 <?php 
-
 	ini_set('display_errors','on');
 	error_reporting(E_ALL);
 
@@ -9,7 +7,7 @@
 	// Fichier permettant de checker si le token d'acces est bien présent
 	require __DIR__.'/loaders/security.php';
 
-	echo 'long access token : '. $_SESSION['fb_access_token'] . '<br><br>';
+	//echo 'long access token : '. $_SESSION['fb_access_token'] . '<br><br>';
 
 	// On demande une instance sur la class ApiController qui permet de lancer une requette à l'API Facebook
 	$api = ApiController::getInstance();
@@ -32,8 +30,25 @@
 
 	// ***********************
 
-
-	// On charge le template index.tpl avec les variables du tableau précédent
-	MyController::loadTemplate('index.tpl', $vars);
-
+  $action = '';
+  if (isset($_GET['action'])) {
+    $action = $_GET['action'];
+  }
+ 
+  if ($action === 'home') {
+    MyController::loadTemplate('home.tpl', array());
+  }
+  else if ($action === 'galery'){
+    MyController::loadTemplate('galery.tpl', array());
+  }
+  else if ($action === 'participate'){
+    MyController::loadTemplate('participate.tpl', array());
+  }
+  else {
+    // On charge le template index.tpl avec les variables du tableau précédent
+    MyController::loadTemplate('index.tpl', $vars);
+  }
 ?>
+
+
+
