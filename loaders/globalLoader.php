@@ -1,4 +1,6 @@
 <?php 
+	session_start();
+
 	$dir = __DIR__.'/';
 	$files = scandir($dir);
 	$noLoad = array(
