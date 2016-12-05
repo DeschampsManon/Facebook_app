@@ -15,9 +15,9 @@
 			return $class::$instance;
 		}
 
-		// public static function loadTemplate($variables) {
-		// 	echo self::$twig->render('login.tpl', $variables );
-	 	//}
+		public static function loadTemplate($file, $variables) {
+			echo self::$twig->render($file, $variables );
+	 	}
 	}
 
 ?>

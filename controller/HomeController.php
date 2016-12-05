@@ -2,7 +2,7 @@
 class HomeController extends MyController {
 
 	public function index() {
-		echo 'home';
+		self::loadTemplate('home.tpl', array());
 	}
 }
 ?>

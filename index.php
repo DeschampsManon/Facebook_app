@@ -14,13 +14,13 @@ if ($action === 'home') {
     HomeController::getInstance()->index();
 }
 else if ($action === 'galery'){
-	GaleryController::getInstance()->index();
+  GaleryController::getInstance()->index();
 }
 else if ($action === 'participate'){
-	ParticipateController::getInstance()->index();
+  ParticipateController::getInstance()->index();
 }
 else {
-    HomeController::getInstance()->index();   
+  HomeController::getInstance()->index();   
 }
 
 ?>
