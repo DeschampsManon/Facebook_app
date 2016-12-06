@@ -7,7 +7,6 @@
 
 	$helper = MyController::$fb->getRedirectLoginHelper();
 
-
 	// On demande un token pour acceder à l'API facebook
 	$accessToken = $helper->getAccessToken();
 
@@ -28,6 +27,7 @@
 		$_SESSION['fb_access_token'] = (string) $longLivedAccessToken;
 		
 		// On redirige l'utilisateur vers l'index de l'application
+
 		header('Location: index.php');
 	}
 ?>

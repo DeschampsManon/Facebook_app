@@ -29,6 +29,7 @@
 		}
 
 		public function checkPermissions($scope) {
+
 			// On fixe une variable error à 0
 			$error = 0;
 			// On demande les permissions de l'utilisateur sur notre application
@@ -55,7 +56,7 @@
 				// On redemande à l'utilisateur de l'accepter une fois
 				if($_SESSION['retryScope'] == 0) {
 					$_SESSION['retryScope'] = 1;
-					echo '<meta http-equiv="refresh" content="0; url='.$loginUrl.'&auth_type=rerequest">';
+					header('Location: '.$loginUrl.'&auth_type=rerequest');
 				}else{
 					
 					// Si il a refusé une deuxième fois, on lui explique pourquoi les permissions sont importantes pour nous
@@ -77,4 +78,3 @@
 		}
 
 	}
-?>
