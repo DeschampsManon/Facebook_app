@@ -2,9 +2,12 @@
 	ini_set('display_errors','on');
 	error_reporting(E_ALL);
 
+	
+
 	// On charge toutes les fichiers nécéssaires au bon fonctionnement de l'application
 	require __DIR__.'/loaders/globalLoader.php';
-	// Fichier permettant de checker si le token d'acces est bien présent
+
+	// Redirige l'utilisateur vers la page de login si son access token n'est pas bon
 	require __DIR__.'/loaders/security.php';
 
 	//echo 'long access token : '. $_SESSION['fb_access_token'] . '<br><br>';
