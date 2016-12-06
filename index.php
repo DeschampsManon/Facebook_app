@@ -39,12 +39,15 @@
   }
  
   if ($action === 'home') {
+    // On charge le template home.tpl 
     MyController::loadTemplate('home.tpl', array());
   }
   else if ($action === 'gallery'){
+    // On charge le template gallery.tpl 
     MyController::loadTemplate('gallery.tpl', array());
   }
   else if ($action === 'participate'){
+    // On charge le template participate.tpl 
     MyController::loadTemplate('participate.tpl', array());
   }
   else {
