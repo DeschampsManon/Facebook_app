@@ -1,7 +1,11 @@
 {% extends 'layout.tpl' %}
 
+{% block title %}
+Accueil
+{% endblock %}
+
 {% block content %}
-    <section class="clearfix dark-bg">
+    <!-- <section class="clearfix dark-bg">
         <div class="container">
             <p class="center-text" style="padding:4rem 6rem;">
                 Cognitis enim pilatorum caesorumque funeribus nemo deinde ad has stationes appulit navem, sed ut Scironis praerupta letalia declinantes litoribus Cypriis contigui navigabant, quae Isauriae scopu
@@ -17,5 +21,5 @@
                
             </div>
         </div>
-    </section>
+    </section> -->
 {% endblock %}
