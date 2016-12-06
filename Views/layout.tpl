@@ -24,7 +24,7 @@
                             <a href="index.php?action=home" title="home">Accueil</a>
                         </li>
                         <li>
-                            <a href="index.php?action=galery" title="galery">Galerie</a>
+                            <a href="index.php?action=gallery" title="galery">Galerie</a>
                         </li>
                         <li>
                             <a href="index.php?action=participate" title="participate">Participer</a>

@@ -87,7 +87,8 @@ h3{
 
 h1,
 h2,
-h3{
+h3,
+legend{
   text-transform: uppercase;
 }
 
@@ -100,7 +101,8 @@ h2{
   padding-bottom:2.5rem; 
 }
 
-h3{
+h3,
+legend{
   font-size: 1.7rem;
   padding: 0 .5rem;
 }
@@ -201,12 +203,18 @@ p{
 .btn{
   color:#fff;
   text-align: center;
-  padding: 2rem 0;
+  text-transform: uppercase;
+  padding: 2rem;
 }
 
 .btn-dark{
   background-color: rgba(255,255,255,.2);
 }
+
+.btn-gold{
+  background-color:#b29e7e; 
+}
+
 /********************* OTHER *********************/
 
 .hidden{
@@ -260,6 +268,36 @@ p{
   border-right: .1rem solid rgba(255,255,255,.2);
 }
 
+/********************* HOME - EXPLICATIONS *********************/
+
+#explications article{
+  background-image:url('../images/explications.png');
+  background-repeat: no-repeat; 
+  background-size:cover;
+  background-position: center;  
+  padding: 3.5rem 0 7rem 0; 
+}
+
+#explications h2{
+  font-size: 5.69rem;
+}
+
+#explications fieldset{
+  border: .2rem solid #b29e7e;
+  padding: 5rem 2rem;
+  color:#fff;
+  margin-left: 9.5rem;
+}
+
+#explications legend{
+  color: #b29e7e;
+}
+
+#explications fieldset a{
+  position: absolute;
+  bottom: -2.5rem;
+}
+
 /********************* HOME - RECOMPENSE *********************/
 
 #recompense article:first-child{
@@ -267,7 +305,7 @@ p{
 }
 
 #recompense article:last-child{
-  padding: 5rem 2rem;
+  padding: 4rem 2rem;
 }
 
 #recompense article:last-child > div{

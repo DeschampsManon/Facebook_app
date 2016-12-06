@@ -38,8 +38,8 @@
   if ($action === 'home') {
     MyController::loadTemplate('home.tpl', array());
   }
-  else if ($action === 'galery'){
-    MyController::loadTemplate('galery.tpl', array());
+  else if ($action === 'gallery'){
+    MyController::loadTemplate('gallery.tpl', array());
   }
   else if ($action === 'participate'){
     MyController::loadTemplate('participate.tpl', array());
