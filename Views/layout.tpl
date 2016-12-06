@@ -10,16 +10,14 @@
         <link rel="stylesheet" href="/assets/stylesheet/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/assets/stylesheet/main.css.scss">
-        <link rel="stylesheet" href="/assets/stylesheet/main_header.css.scss">
-        <link rel="stylesheet" href="/assets/stylesheet/main_footer.css.scss">
         <link rel="stylesheet" href="/assets/stylesheet/filter.css.scss">
     </head>
     {% endblock %}
     <body>
         {% block header %}
-        <header id="main-header" class="clearfix">
+        <header class="clearfix" id="main-header">
             <div class="container">
-                <nav class="clearfix col total">
+                <nav class="clearfix">
                     <h1>pardon maman</h1>
                     <ul class="clearfix">
                         <li>

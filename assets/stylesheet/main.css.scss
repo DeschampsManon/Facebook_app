@@ -32,8 +32,7 @@ html {
 
 body {
 	font-family: Raleway;
-	font-size: 1.5rem;
-	color: #fff;
+	font-size: 1.4rem;
 }
 
 a{
@@ -54,6 +53,10 @@ video{
 	display:block;
 	width: 100%;
 	border-radius: 0;
+}
+
+img{
+  max-width: 100%;
 }
 
 input,
@@ -79,14 +82,27 @@ fieldset{
 h1,
 h2,
 h3{
-	font-weight: lighter;
+	font-weight: normal;
+}
+
+h1,
+h2,
+h3{
+  text-transform: uppercase;
+}
+
+h1,
+h2{
+  font-family: impact;
 }
 
 h2{
-	text-transform: uppercase;
-    font-size: 1.3rem;
-    margin-top: 1.4rem;
-    margin-left: 1rem;
+  padding-bottom:2.5rem; 
+}
+
+h3{
+  font-size: 1.7rem;
+  padding: 0 .5rem;
 }
 
 p{
@@ -114,7 +130,12 @@ p{
 
 .col {
 	float: left;
-	padding: 0 1rem;
+	padding: 0 2rem;
+}
+
+.center-block{
+  margin: 0 auto; 
+  text-transform: uppercase;
 }
 
 /********************* WIDTH *********************/
@@ -175,6 +196,17 @@ p{
 	margin-bottom: 20px; 
 }
 
+/********************* BUTTONS *********************/
+
+.btn{
+  color:#fff;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.btn-dark{
+  background-color: rgba(255,255,255,.2);
+}
 /********************* OTHER *********************/
 
 .hidden{
@@ -191,16 +223,16 @@ p{
 
 /********************* MAIN HEADER *********************/
 
-#main-header{
+#main-header nav{
   background-color: #272727;
 }
 
 #main-header h1{
   font-size: 2.5rem;
-  text-transform: uppercase;
-  font-family: impact;
   float: left;
   padding: 1rem 0;
+  color:#fff;
+  padding-left: 2rem;
 }
 
 #main-header ul{
@@ -214,7 +246,6 @@ p{
 #main-header ul > li > a{
   color: #fff;
   text-transform: uppercase;
-  font-size: 1.4rem;
   padding:1.7rem 2rem;
   border-left: .1rem solid rgba(255,255,255,.2);
 }
@@ -227,6 +258,57 @@ p{
 
 #main-header ul > li:last-child > a{
   border-right: .1rem solid rgba(255,255,255,.2);
+}
+
+/********************* HOME - RECOMPENSE *********************/
+
+#recompense article:first-child{
+  height: auto;
+}
+
+#recompense article:last-child{
+  padding: 5rem 2rem;
+}
+
+#recompense article:last-child > div{
+  border: .2rem solid #c3c2c2;
+  padding: 3rem 2rem;
+  color: #272727;
+}
+
+#recompense article:last-child > div h2{
+  font-size: 7.07rem;
+}
+
+#recompense article:last-child > div h3{
+  color: #c3c2c2;
+  background-color: #fff;
+  position: absolute;
+  top: -10.5px;
+}
+
+/********************* HOME - LAST PARTICIPANTS *********************/
+
+#last_participants > div > div,
+#last_participants > div > header,
+#last_participants > div > footer{
+  background-color: #272727;
+  padding: 3rem 0;
+}
+
+#last_participants hr{
+  border: .2rem solid transparent;
+  border-bottom-color: rgba(255,255,255,.5);
+  margin: 2rem;
+}
+
+#last_participants h3{
+  color: rgba(255,255,255,.5);
+  background-color: #272727;
+  position: absolute;  
+  margin: 0 auto;
+  top: 4.2rem;
+  left: 33%;
 }
 
 
