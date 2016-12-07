@@ -421,9 +421,10 @@ p{
 }
 
 #filters nav{
-  width: calc(100% - 22rem);
-  width: -moz-calc(100% - 22rem);
-  width: -webkit-(100% - 22rem);
+  width: calc(100% - 21.5rem);
+  width: -moz-calc(100% - 21.5rem);
+  width: -webkit-(100% - 21.5rem);
+  border-left: .2rem solid #c3c2c2;
 }
 
 #filters nav span{
@@ -461,8 +462,13 @@ p{
   text-align: center;
 }
 
+#filters form{
+  border-right: .2rem solid #c3c2c2;
+  width: 21.5rem;
+}
+
 #filters form input[type="text"]{
-  width: 22rem;
+  width: 100%;
   height: 4rem;
   background-color: #fff;
   color:#272727;
@@ -482,20 +488,17 @@ p{
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  color: #272727;
   font-style: italic;
   font-weight: 300;
   font-size: 1.3rem;
 }
 ::-moz-placeholder { /* Firefox 19+ */
-  color: #272727;
   font-size:1.6rem;
   font-style: italic;
   font-weight: 300;
   font-size: 1.3rem;
 }
 :-ms-input-placeholder { /* IE 10+ */
-  color: #272727;
   font-style: italic;
   font-weight: 300;
   font-size: 1.3rem;
