@@ -333,7 +333,18 @@ p{
 #explications fieldset a{
   position: absolute;
   bottom: -2.5rem;
+  outline-offset: -.4rem;
+  outline: .1rem solid transparent;
+  -webkit-transition: all .2s ease-in;
+  -moz-transition: all .2s ease-in;
+  -o-transition: all .2s ease-in;
+  transition: all .2s ease-in;
 }
+
+#explications fieldset a:hover{
+  outline: .1rem solid #fff;
+}
+  
 
 /********************* HOME - RECOMPENSE / FINAL - WINNER *********************/
 
