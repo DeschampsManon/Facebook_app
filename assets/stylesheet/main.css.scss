@@ -367,7 +367,13 @@ p{
   font-size: 7.07rem;
 }
 
-#recompense article:last-child > div h3,
+#recompense article:last-child > div h3{
+  color: #c3c2c2;
+  background-color: #fff;
+  position: absolute;
+  top: -10.5px;
+}
+
 #winner article:last-child > div h3{
   color: #b29e7e;
   background-color: #272727;
