@@ -1,7 +1,7 @@
 {% extends 'layout.tpl' %}
 
 {% block title %}
-Gallerie
+Galerie
 {% endblock %}
 
 {% block content %}

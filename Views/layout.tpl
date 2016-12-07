@@ -1,6 +1,6 @@
+{% block head %}
 <!DOCTYPE html>
 <html>
-    {% block head %}
     <head>
         <meta charset="utf-8">
         <title>{% block title %}{% endblock %} - Concours photo</title>
@@ -41,6 +41,6 @@
             <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
             <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
         </footer>
-        {% endblock %}
     </body>
 </html>
+{% endblock %}
