@@ -10,7 +10,7 @@ Gallerie
       <nav>
         <span>Filtrer par</span>
         <ul>
-          <li>
+          <li class="active">
             <a href="#!">Date</a>
           </li>
           <li>

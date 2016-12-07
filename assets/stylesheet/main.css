@@ -443,6 +443,7 @@ p{
   width: 33.3%;
 }
 
+#filters nav li.active a,
 #filters nav li:hover a,
 #filters nav li:focus a,
 #filters nav li:active a{
@@ -464,6 +465,9 @@ p{
   width: 22rem;
   height: 4rem;
   background-color: #fff;
+  color:#272727;
+  font-size: 1.4rem;
+  font-weight: 300;
 }
 
 #filters form input[type="submit"]{
