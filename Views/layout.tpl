@@ -9,8 +9,7 @@
         <meta name="author" content="Gianni AZIZI, Alexis TRETON, Alexandre DUBOIS, Manon DESCHAMPS">
         <link rel="stylesheet" href="/assets/stylesheet/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
-        <link rel="stylesheet" href="/assets/stylesheet/main.css.scss">
-        <link rel="stylesheet" href="/assets/stylesheet/filter.css.scss">
+        <link rel="stylesheet" href="/assets/stylesheet/main.css">
     </head>
     {% endblock %}
     <body>

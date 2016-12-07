@@ -405,8 +405,118 @@ p{
   left: 33%;
 }
 
+/********************* GALLERY - PHOTO LIST *********************/
 
+#filters nav,
+#filters form{
+  float:left;
+}
 
+#filters nav ul,
+#filters nav li,
+#filters nav span{
+  float: left;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+#filters nav{
+  width: calc(100% - 22rem);
+  width: -moz-calc(100% - 22rem);
+  width: -webkit-(100% - 22rem);
+}
+
+#filters nav span{
+  padding: 0 2rem;
+}
+
+#filters nav ul{
+  width: 79.7%;
+}
+
+#filters nav span,
+#filters nav li a{
+  padding: 1.05rem;
+}
+
+#filters nav li{
+  width: 33.3%;
+}
+
+#filters nav li:hover a,
+#filters nav li:focus a,
+#filters nav li:active a{
+  background-color: #b29e7e;
+  color:#fff;
+}
+
+#filters nav li:last-child{
+  border-right: .2rem solid #c3c2c2;
+}
+
+#filters nav li a{
+  color: #272727;
+  border-left: .2rem solid #c3c2c2;
+  text-align: center;
+}
+
+#filters form input[type="text"]{
+  width: 22rem;
+  height: 4rem;
+  background-color: #fff;
+}
+
+#filters form input[type="submit"]{
+  font-family: FontAwesome;
+  background-color: #fff;
+  color:#272727;
+  font-size: 1.6rem;
+  position: absolute;
+  width: 4rem;
+  top:0;
+  right: 0;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #272727;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #272727;
+  font-size:1.6rem;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #272727;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: #272727;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.3rem;
+}
+
+#pictures > div > div,
+#pictures > div > footer{
+  padding:4rem 0;
+  background-color: #272727;
+}
+
+#pictures > div > footer{
+  padding-top: 0;
+}
+
+#pictures img{
+  margin-bottom: 2rem;
+}
 
 
 
