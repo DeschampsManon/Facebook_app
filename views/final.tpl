@@ -5,6 +5,11 @@ Accueil
 {% endblock %}
 
 {% block content %}
+    <style type="text/css">
+    #main-header ul{
+        display: none;
+    }
+    </style>
     <section class="clearfix" id="final">
         <div class="container">
             <article>

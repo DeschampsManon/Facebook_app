@@ -21,7 +21,7 @@
                     <h1>
                         <a href="index.php?action=home" title="home">Accueil</a>
                     </h1>
-                    <ul class="clearfix hidden">
+                    <ul>
                         <li>
                             <a href="index.php?action=home" title="home">Accueil</a>
                         </li>
