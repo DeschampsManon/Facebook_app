@@ -235,7 +235,7 @@ p{
   background-color: #272727;
 }
 
-#main-header h1{
+#main-header h1 a{
   font-size: 2.5rem;
   float: left;
   padding: 1rem 0;
@@ -286,7 +286,7 @@ p{
   font-weight: 300;
   border-radius: .6rem;
   border: 1px solid #272727;
-  margin: 20rem auto;
+  margin: 30rem auto;
 }
 
 #login .fixed-content a i{
@@ -297,9 +297,10 @@ p{
 }
 
 
-/********************* HOME - EXPLICATIONS *********************/
+/********************* HOME - EXPLICATIONS / FINAL - FINAL *********************/
 
-#explications article{
+#explications article,
+#final article{
   background-image:url('../images/explications.png');
   background-repeat: no-repeat; 
   background-size:cover;
@@ -307,18 +308,25 @@ p{
   padding: 3.5rem 0 7rem 0; 
 }
 
-#explications h2{
+#explications h2,
+#final h2{
   font-size: 5.69rem;
 }
 
-#explications fieldset{
+#explications fieldset,
+#final fieldset{
   border: .2rem solid #b29e7e;
   padding: 5rem 2rem;
   color:#fff;
   margin-left: 9.5rem;
 }
 
-#explications legend{
+#final fieldset{
+  padding: 3rem 2rem;
+}
+
+#explications legend,
+#final legend{
   color: #b29e7e;
 }
 
@@ -327,14 +335,19 @@ p{
   bottom: -2.5rem;
 }
 
-/********************* HOME - RECOMPENSE *********************/
+/********************* HOME - RECOMPENSE / FINAL - WINNER *********************/
 
-#recompense article:first-child{
-  height: auto;
+#recompense article:last-child,
+#winner article:last-child{
+  padding: 4rem 2rem;
 }
 
-#recompense article:last-child{
-  padding: 4rem 2rem;
+#winner article:last-child{
+  padding: 6.25rem 2rem;
+}
+
+#winner article:last-child{
+  background-color: #272727;
 }
 
 #recompense article:last-child > div{
@@ -343,13 +356,21 @@ p{
   color: #272727;
 }
 
-#recompense article:last-child > div h2{
+#winner article:last-child > div{
+  border: .2rem solid #b29e7e;
+  padding: 3rem 2rem;
+  color: #ffffff;
+}
+
+#recompense article:last-child > div h2,
+#winner article:last-child > div h2{
   font-size: 7.07rem;
 }
 
-#recompense article:last-child > div h3{
-  color: #c3c2c2;
-  background-color: #fff;
+#recompense article:last-child > div h3,
+#winner article:last-child > div h3{
+  color: #b29e7e;
+  background-color: #272727;
   position: absolute;
   top: -10.5px;
 }

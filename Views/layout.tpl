@@ -18,8 +18,10 @@
         <header class="clearfix" id="main-header">
             <div class="container">
                 <nav class="clearfix">
-                    <h1>pardon maman</h1>
-                    <ul class="clearfix">
+                    <h1>
+                        <a href="index.php?action=home" title="home">Accueil</a>
+                    </h1>
+                    <ul class="clearfix hidden">
                         <li>
                             <a href="index.php?action=home" title="home">Accueil</a>
                         </li>
