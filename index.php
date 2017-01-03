@@ -38,8 +38,43 @@
     MyController::loadTemplate('gallery.tpl', array());
   }
   else if ($action === 'participate'){
-    // On charge le template participate.tpl 
-    MyController::loadTemplate('participate.tpl', array());
+    // On charge le template participate.tpl
+
+      $response = MyController::$fb->get('/me/albums?fields=name');
+      $albums = $response->getDecodedBody();
+      $images = array();
+      $albumsNames = array();
+      $count = 0;
+
+      foreach($albums['data'] as $key => $album) {
+
+          $response = MyController::$fb->get('/'.$album['id'].'/photos?fields=picture');
+          $photos = $response->getDecodedBody();
+
+          //echo '<div id="albums">';
+
+          $albumsNames[] = $album['name'];
+
+          foreach ($photos['data'] as $key => $photo) {
+              $images[] = $photo['picture'];
+          }
+
+          $imagesToLoad[$count] = $images;
+          $images = array('');
+
+          //echo '<form method="post" action="publication.php"><input type="file" name="upload"></form>';
+
+          //echo '<div style="clear:both;"></div></div><br/><br/>';
+
+          $count++;
+      }
+
+      $vars = array(
+          'images' => $imagesToLoad,
+          'albums' => $albumsNames
+      );
+
+      MyController::loadTemplate('participate.tpl', $vars);
   }
   else {
     // On charge le template index.tpl avec les variables du tableau précédent

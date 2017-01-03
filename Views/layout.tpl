@@ -1,4 +1,3 @@
-{% block head %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,8 +9,9 @@
         <link rel="stylesheet" href="/assets/stylesheet/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/assets/stylesheet/main.css">
+        {% block head %}
+        {% endblock %}
     </head>
-    {% endblock %}
     <body>
         {% block header %}
         <header class="clearfix" id="main-header">
@@ -36,11 +36,14 @@
         </header>
         {% endblock %}
         {% block content %}{% endblock %}
-        {% block footer %}
+
         <footer>
-            <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
-            <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
+            {% block footer %}
+            {% endblock %}
         </footer>
+        <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
+        {% block script %}
+        {% endblock %}
     </body>
 </html>
-{% endblock %}
