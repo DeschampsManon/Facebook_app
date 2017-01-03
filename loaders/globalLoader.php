@@ -6,4 +6,5 @@
 	require __DIR__.'/fb.php';
 	require __DIR__.'/bdd.php';
 	require __DIR__.'/twig.php';
+	require __DIR__.'/scopes.php';
 ?>

@@ -11,11 +11,18 @@
 		}
 
 		// On instancie selon la classe appelée
-		public static function getInstance() {
+		public static function getInstance($construct = null) {
+			self::$instance = null;
 			$class = get_called_class();
-			if ($class::$instance == null) {
-				$class::$instance = new $class();
-			}
+			
+				if ($class::$instance == null) {
+					if($construct != null) {
+						$class::$instance = new $class($construct);
+					}else{
+						$class::$instance = new $class();
+					}	
+				}
+			
 			return $class::$instance;
 		}
 
