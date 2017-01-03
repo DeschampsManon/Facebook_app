@@ -1,0 +1,3 @@
+<?php  
+	$api->checkPermissions($scopes);
+?>

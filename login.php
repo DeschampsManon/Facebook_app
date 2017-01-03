@@ -7,8 +7,7 @@
 	$_SESSION['retryScope'] = 0;
 
 	$helper = MyController::$fb->getRedirectLoginHelper();
-	$permissions = ['email', 'user_birthday'];
-	$loginUrl = $helper->getLoginUrl('http://fb.digital-rooster.fr/login-callback.php', $permissions);
+	$loginUrl = $helper->getLoginUrl('http://fb.digital-rooster.fr/login-callback.php', $scopes);
 
 	$vars = array(
 		'loginUrl' => $loginUrl

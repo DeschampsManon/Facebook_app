@@ -1,6 +1,7 @@
 {% extends 'layout.tpl' %}
 
 {% block content %}
+	<p>Id : {{ user.id }}</p>
 	<p>Nom : {{ user.last_name }}</p>
 	<p>Prenom : {{ user.first_name }}</p>
 	<p>anniversaire : {{ user.birthday }}</p>

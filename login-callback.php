@@ -25,9 +25,19 @@
 
 		// On stock le token d'acces dans une variable session
 		$_SESSION['fb_access_token'] = (string) $longLivedAccessToken;
+		MyController::$fb->setDefaultAccessToken($_SESSION['fb_access_token']);
 		
-		// On redirige l'utilisateur vers l'index de l'application
+		// On demande une instance sur la class ApiController qui permet de lancer une requette à l'API Facebook
+		$api = ApiController::getInstance();
 
+		// On envoi une requette de type GET qui permet de récupérer les informations de l'utilisateur
+		$userInfos = $api->getRequest('/me?fields=id,email, last_name, first_name, birthday, gender, devices, currency, locale');
+
+		// On ajoute l'utilisateur dans la base de donnée
+		$user = UsersController::getInstance($userInfos);
+		$user->addUser($userInfos);
+
+		// On redirige l'utilisateur vers l'index de l'application
 		header('Location: index.php');
 	}
 ?>
