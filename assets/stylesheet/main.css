@@ -132,7 +132,7 @@ p{
 
 .col {
 	float: left;
-	padding: 0 2rem;
+	padding: 0 1rem;
 }
 
 .center-block{
@@ -229,10 +229,116 @@ p{
 	cursor: pointer;
 }
 
+/********************* FORM *********************/
+
+label{
+  color: #fff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  height: 40px;
+}
+
+.select-styled {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(255,255,255,0.1);
+  padding: 10px 15px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.select-styled:after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+
+.select-styled:hover {
+  background-color: #b29e7e;
+}
+
+.select-styled:active, .select-styled.active {
+  background-color: #b29e7e;
+}
+
+.select-styled:active:after, .select-styled.active:after {
+  top: 9px;
+  border-color: transparent transparent #fff transparent;
+}
+
+.select-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #b29e7e;
+}
+
+.select-options li {
+  margin: 0;
+  padding: 12px 0;
+  text-indent: 15px;
+  border-top: 1px solid #272727;
+  -moz-transition: all 0.15s ease-in;
+  -o-transition: all 0.15s ease-in;
+  -webkit-transition: all 0.15s ease-in;
+  transition: all 0.15s ease-in;
+}
+
+.select-options li:hover {
+  color: #fff;
+  background: rgba(255,255,255,.2);
+}
+
+.select-options li[rel="hide"] {
+  display: none;
+}
+
+
+
+
 /********************* MAIN HEADER *********************/
 
 #main-header nav{
   background-color: #272727;
+  border-bottom: .1rem solid rgba(255,255,255,.2);
 }
 
 #main-header h1 a{
@@ -240,7 +346,7 @@ p{
   float: left;
   padding: 1rem 0;
   color:#fff;
-  padding-left: 2rem;
+  padding-left: 1rem;
 }
 
 #main-header ul{
@@ -536,11 +642,14 @@ p{
   margin-bottom: 2rem;
 }
 
+/********************* ALBUM *********************/
 
+#gallery{
+  padding: 2rem 0;
+  background-color: #272727;
+  min-height: 100vh;
+}
 
-
-
-
-
-
-
+.album .grid-item{
+  margin-bottom: 2rem;
+}
