@@ -4,6 +4,6 @@
 
 # ignored files #
 #################
-
+.idea/
 loaders/fb.php
 
