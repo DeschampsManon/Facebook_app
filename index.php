@@ -1,4 +1,6 @@
-<?php 
+<?php
+
+    //TODO desactiver les notices
 	ini_set('display_errors','on');
 	error_reporting(E_ALL);
 
@@ -14,6 +16,11 @@
 	// Vérifie si toutes les permissions demandées sont acceptées par l'utilisateur
 	require __DIR__.'/loaders/permissions.php';
 
+	// Check concours
+
+    require __DIR__.'/loaders/competition.php';
+    // INDISPENSABLE POUR l'UPLOAD DE PHOTO VERS LA GALERIE
+
 	// On envoi une requette de type GET qui permet de récupérer les informations de l'utilisateur
 	$userInfos = $api->getRequest('/me?fields=id,email, last_name, first_name, birthday, gender, devices, currency, locale');
 
@@ -21,64 +28,112 @@
 	$vars = array(
 		'user' => $userInfos
 	);
-
 	// ***********************
+
+if($_SESSION['COMPETITION'] == 1) {
 
   $action = '';
   if (isset($_GET['action'])) {
     $action = $_GET['action'];
   }
- 
-  if ($action === 'home') {
-    // On charge le template home.tpl 
-    MyController::loadTemplate('home.tpl', array());
-  }
-  else if ($action === 'gallery'){
-    // On charge le template gallery.tpl 
-    MyController::loadTemplate('gallery.tpl', array());
-  }
-  else if ($action === 'participate'){
-    // On charge le template participate.tpl
 
-      $response = MyController::$fb->get('/me/albums?fields=name');
-      $albums = $response->getDecodedBody();
-      $images = array();
-      $albumsNames = array();
-      $count = 0;
+  if(isset($_GET['id']) && $_GET['id'] != "") {
+      $instance = new PicturesController();
+      $picture = $instance->getPicture($_GET['id']);
 
-      foreach($albums['data'] as $key => $album) {
+      // TODO-me voir pour le bouton de partage qui ne marche pas
+      // TODO-me Le retirer de la page galery
 
-          $response = MyController::$fb->get('/'.$album['id'].'/photos?fields=picture');
-          $photos = $response->getDecodedBody();
+      MyController::loadTemplate('photo.tpl', array(
+          'picture' => $picture
+      ));
+  }else{
+      if ($action === 'home') {
+          // On charge le template home.tpl
 
-          //echo '<div id="albums">';
+          $instance = new PicturesController();
+          $pictures = $instance->getAllPictures();
 
-          $albumsNames[] = $album['name'];
+          $onlyThreePictures[] = $pictures[0];
+          $onlyThreePictures[] = $pictures[1];
+          $onlyThreePictures[] = $pictures[2];
 
-          foreach ($photos['data'] as $key => $photo) {
-              $images[] = $photo['picture'];
+          MyController::loadTemplate('home.tpl', array(
+              'admin' => $_SESSION['admin'],
+              'pictures' => $onlyThreePictures
+          ));
+      }
+      else if ($action === 'gallery'){
+          // On charge le template gallery.tpl
+          // TODO envoyer le nom des auteurs avec les photos
+          $instance = new PicturesController();
+          $pictures = $instance->getAllPictures();
+
+          MyController::loadTemplate('gallery.tpl', array(
+              'pictures' => $pictures
+          ));
+      }
+      else if ($action === 'participate'){
+
+          if($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+              $generatedId = rand(1,10000).''.rand(1,10000).''.rand(1,10000);
+              $generatedLink = 'http//fb.digital-rooster.fr/'.$generatedId;
+
+              $pic = array(
+                  'id_photo' => $generatedId,
+                  'link_photo' => $_POST['link_photo'],
+                  'link_like' => $generatedLink,
+                  'id_user' => $vars['user']['id'],
+                  'id_concours' => 1 // TODO Mettre variable de session id concours a la place
+              );
+
+              $instance = new PicturesController();
+              $instance->addPicture($pic);
+          }else {
+
+              $response = MyController::$fb->get('/me/albums?fields=name');
+              $albums = $response->getDecodedBody();
+              $images = array();
+              $albumsNames = array();
+              $count = 0;
+
+              foreach ($albums['data'] as $key => $album) {
+
+                  $response = MyController::$fb->get('/' . $album['id'] . '/photos?fields=source');
+                  $photos = $response->getDecodedBody();
+
+                  $albumsNames[] = $album['name'];
+
+                  foreach ($photos['data'] as $key => $photo) {
+
+                      $images[] = $photo['source'];
+                  }
+
+                  $imagesToLoad[$count] = $images;
+                  $images = array('');
+
+                  $count++;
+              }
+
+              $vars = array(
+                  'images' => $imagesToLoad,
+                  'albums' => $albumsNames,
+              );
+
           }
 
-          $imagesToLoad[$count] = $images;
-          $images = array('');
-
-          //echo '<form method="post" action="publication.php"><input type="file" name="upload"></form>';
-
-          //echo '<div style="clear:both;"></div></div><br/><br/>';
-
-          $count++;
+          // On charge le template participate.tpl
+          MyController::loadTemplate('participate.tpl', $vars);
       }
-
-      $vars = array(
-          'images' => $imagesToLoad,
-          'albums' => $albumsNames
-      );
-
-      MyController::loadTemplate('participate.tpl', $vars);
+      else {
+          // On charge le template index.tpl avec les variables du tableau précédent
+          MyController::loadTemplate('index.tpl', $vars);
+      }
   }
-  else {
-    // On charge le template index.tpl avec les variables du tableau précédent
-    MyController::loadTemplate('index.tpl', $vars);
-  }
+
+}else{
+    echo "Pas de concours activé";
+}
+
 ?>
-

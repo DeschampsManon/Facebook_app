@@ -5,7 +5,8 @@ Galerie
 {% endblock %}
 
 {% block content %}
-  <section class="clearfix" id="filters">
+{{ parent() }}
+ <section class="clearfix" id="filters">
     <div class="container">
       <nav>
         <span>Filtrer par</span>
@@ -31,21 +32,18 @@ Galerie
   <section class="clearfix" id="pictures">
     <div class="container">
       <div class="clearfix">
-        <div class="col tiers">
-          <img src="/assets/images/img1.jpg">
-        </div>
-        <div class="col tiers">
-          <img src="/assets/images/img1.jpg">
-        </div>
-        <div class="col tiers">
-          <img src="/assets/images/img1.jpg">
-        </div>
-        <div class="col tiers">
-          <img src="/assets/images/img1.jpg">
-        </div>
-        <div class="col tiers">
-          <img src="/assets/images/img1.jpg">
-        </div>
+
+
+          {% for picture in pictures %}
+              <div class="col tiers">
+                  <div style="margin:2px;float:left;width:150px;height:150px;background-image:url('{{ picture.link_photo }}');background-repeat:no-repeat;background-size:cover;"></div>
+                  <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count"
+                       data-action="like" data-size="small"
+                       data-show-faces="true" data-share="true"></div>
+              </div>
+          {% endfor %}
+
+
       </div>
       <footer class="clearfix">
         <div class="col tiers center-block" style="float:none;">

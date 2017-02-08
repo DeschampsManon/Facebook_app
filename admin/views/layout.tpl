@@ -13,22 +13,23 @@
         {% endblock %}
     </head>
     <body>
+        <form method="post" action="index.php?action=livedit">
         {% block header %}
         <header class="clearfix" id="main-header">
             <div class="container">
                 <nav class="clearfix">
                     <h1>
-                        <a href="index.php?action=home" title="home">Accueil</a>
+                        <a href="../index.php?action=home" title="home">Accueil</a>
                     </h1>
                     <ul>
                         <li>
-                            <a href="index.php?action=home" title="home">Accueil</a>
+                            <a href="../index.php?action=home" title="home">Accueil</a>
                         </li>
                         <li>
-                            <a href="index.php?action=gallery" title="galery">Galerie</a>
+                            <a href="../index.php?action=gallery" title="galery">Galerie</a>
                         </li>
                         <li>
-                            <a href="index.php?action=participate" title="participate">Participer</a>
+                            <a href="../index.php?action=participate" title="participate">Participer</a>
                         </li>
                     </ul>
                 </nav>
@@ -48,14 +49,53 @@
         {% endblock %}
 
         <footer>
-            {% block footer %}
-            {% endblock %}
-            {% if admin == 1 %}
-                <a href="admin/index.php">Administration</a>
-            {% endif %}
+
         </footer>
+        </form>
         <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
+        <script>
+
+            // TODO Rajouter un bouton pour fermer le live edit
+
+            $(function() {
+
+                $('.editable').on('click', function() {
+
+                    var divHtml = $(this).html();
+                    var name = $(this).attr('name');
+                    var editableText = $("<textarea name=""></textarea>");
+
+                    editableText.val(divHtml);
+                    $(this).replaceWith(editableText);
+                    editableText.focus();
+
+                });
+
+                $('#validate').on('click', function() {
+
+                    var html = $(this).val();
+                    var viewableText = $("<h2>");
+
+                    viewableText.html(html);
+                    $(this).replaceWith(viewableText);
+
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data,
+                        success: success,
+                        dataType: dataType
+                    });
+
+                });
+
+            });
+
+            $('a').click(function(){
+                return false;
+            });
+        </script>
         {% block script %}
         {% endblock %}
     </body>

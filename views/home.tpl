@@ -5,6 +5,9 @@ Accueil
 {% endblock %}
 
 {% block content %}
+    {{ parent() }}
+    <div class="fb-like" data-href="http://fb.digital-rooster.fr"
+     data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <section class="clearfix" id="explications">
         <div class="container">
             <article>
@@ -42,15 +45,14 @@ Accueil
                 <h3>les derniers participants</h3>
             </header>
             <div class="clearfix">
+                {% for picture in pictures %}
                 <article class="col tiers">
-                    <img src="/assets/images/img1.jpg" height="330px">
+                    <img src="{{ picture.link_photo }}">
+                    <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count"
+                         data-action="like" data-size="small"
+                         data-show-faces="true" data-share="true"></div>
                 </article>
-                <article class="col tiers">
-                    <img src="/assets/images/img4.jpg" height="330px">
-                </article>
-                <article class="col tiers">
-                    <img src="/assets/images/img3.jpg" height="330px">
-                </article>
+                {% endfor %}
             </div>
             <footer class="clearfix">
                 <div class="col tiers center-block" style="float:none;">

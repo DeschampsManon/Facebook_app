@@ -68,9 +68,6 @@ textarea{
 
 input{
 	height: 4rem;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-   	appearance: none;
    	padding: 0 1.2rem;
    	background-color: rgba(167, 169, 172, .08);
 }
@@ -434,7 +431,7 @@ p{
 #filters nav{
   width: calc(100% - 21.5rem);
   width: -moz-calc(100% - 21.5rem);
-  width: -webkit-(100% - 21.5rem);
+  width: -webkit-calc(100% - 21.5rem);
   border-left: .2rem solid #c3c2c2;
 }
 
