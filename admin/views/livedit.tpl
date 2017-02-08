@@ -5,6 +5,7 @@ Accueil
 {% endblock %}
 
 {% block content %}
+<form method="post" action="index.php?action=livedit">
 {{ parent() }}
 <div class="fb-like" data-href="http://fb.digital-rooster.fr"
      data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
@@ -61,4 +62,5 @@ Accueil
         </footer>
     </div>
 </section>
+</form>
 {% endblock %}

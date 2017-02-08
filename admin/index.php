@@ -1,4 +1,7 @@
 <?php
+
+//TODO deuxieme formulaire back end, live edit, nom sur les photos
+
 ini_set('display_errors','on');
 error_reporting(E_ALL);
 

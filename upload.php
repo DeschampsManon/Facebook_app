@@ -22,17 +22,15 @@ if (isset($_FILES['file'])){
 	$temp_name = $_FILES['file']['tmp_name'];
 	
 	$uploaddir = 'uploads/';
-	$uploadfile = $uploaddir . basename($name);
+	$uploadfile = $uploaddir . basename($name.rand(1,99999).rand(1,99999));
 
 
 		if(move_uploaded_file($temp_name, $uploadfile)){
 
 			$path = $uploadfile;
 
-			$data = ['message' => 'TEST upload Application facebook',
+			$data = ['message' => '[TEST API] Je participe au concours pardon maman ! Voici ma photo :) Rejoignez le concours : {{link}}',
 	 		 'source' => MyController::$fb->fileToUpload($path),
-	  		// Or you can provide a remote file location
-	  		//'source' => $fb->fileToUpload('https://example.com/photo.jpg'),
 			];
 
 			$api = ApiController::getInstance();
@@ -45,6 +43,8 @@ if (isset($_FILES['file'])){
 		  				exit;
 					}
 
+            // On supprime le fichier
+            unlink($uploadfile);
 			header("Location:index.php?action=participate&upload=Ok");
 }
 	 	else {

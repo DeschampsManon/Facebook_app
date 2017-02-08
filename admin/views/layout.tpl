@@ -13,7 +13,6 @@
         {% endblock %}
     </head>
     <body>
-        <form method="post" action="index.php?action=livedit">
         {% block header %}
         <header class="clearfix" id="main-header">
             <div class="container">
@@ -51,7 +50,6 @@
         <footer>
 
         </footer>
-        </form>
         <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
         <script>
