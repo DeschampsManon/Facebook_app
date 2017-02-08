@@ -10,7 +10,7 @@ function custom_select(){
   
     $this.addClass('select-hidden'); 
     $this.wrap('<div class="select"></div>');
-    $this.after('<div class="select-styled"></div>');
+    //$this.after('<div class="select-styled"></div>');
 
     var $styledSelect = $this.next('div.select-styled');
     $styledSelect.text($this.children('option').eq(0).text());
