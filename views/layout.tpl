@@ -56,6 +56,7 @@
         </footer>
         <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
+        <script type="text/javascript" src="/assets/javascript/main.js"></script>
         {% block script %}
         {% endblock %}
     </body>
