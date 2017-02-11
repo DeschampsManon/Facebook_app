@@ -31,6 +31,13 @@
 			echo self::$twig->render($file, $variables);
 		}
 
+		public static function loadFrontOffice() {
+		    $front = new MyModel();
+		    $result = $front->loadFrontConfig();
+
+		    return $result;
+        }
+
 		public static function error($message) {
 			echo '<div id="msg-error">' . $message . '</div>';
 		}

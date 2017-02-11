@@ -5,18 +5,15 @@ Accueil
 {% endblock %}
 
 {% block content %}
-<form method="post" action="index.php?action=livedit">
 {{ parent() }}
-<div class="fb-like" data-href="http://fb.digital-rooster.fr"
-     data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 <section class="clearfix" id="explications">
     <div class="container">
         <article>
             <fieldset class="moitie relative">
                 <legend> concours photo </legend>
-                <h2 class="editable">the best tatoo</h2>
-                <p>
-                    Pardon maman organise un concours photos de tatouage. Tu as jusqu’au 28 février 2017 pour poster ton meilleur tatouage et voter pour celui que tu trouves le plus impressionant.
+                <h2 class="editable" name="title">{{ front.title }}</h2>
+                <p class="editable" textarea="yes" name="texte">
+                    {{ front.texte }}
                 </p>
                 <a href="index.php?action=participate" title="participate" class="btn btn-gold">je participe</a>
             </fieldset>
@@ -28,10 +25,10 @@ Accueil
         <article class="col moitie no-padding-left">
             <img src="/assets/images/recompense_tatoo.png" alt="">
         </article>
-        <article class="col moitie">
+        <article class="col moitie" id="reward">
             <div class="relative">
                 <h2>free tatoo</h2>
-                <h3>une superbe récompense</h3>
+                <h3 class="editable" name="title2">{{ front.title2 }}</h3>
                 <p>
                     Aucun doute ! Tu seras notre prochain gagnant. Tu auras donc la possibilité de choisir l’un de nos talentueux artistes pour te faire tatouer gratuitement l’oeuvre de ton choix.
                 </p>
@@ -62,5 +59,20 @@ Accueil
         </footer>
     </div>
 </section>
+<a id="close" class="close" href="index.php">Fermer l'editeur</a>
+<button id="validate">Enregistrer les modifications</button>
+<form id="form" style="display: none;">
 </form>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $('a').click(function(e){
+            if($(e.target).hasClass('close')) {
+
+            }else{
+                return false;
+            }
+        });
+    </script>
 {% endblock %}

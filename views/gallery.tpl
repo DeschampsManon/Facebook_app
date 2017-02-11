@@ -23,8 +23,7 @@ Galerie
         </ul>
       </nav>
       <form action="" method="get" class="relative">
-        <input type="text" name="search_user" placeholder="chercher un participant">
-        <input type="submit" value="&#xf002;">
+        <input type="text" id="search_user" placeholder="chercher un participant">
       </form>
     </div>
   </section>
@@ -35,8 +34,9 @@ Galerie
 
 
           {% for picture in pictures %}
-              <div class="col tiers">
+              <div class="col tiers picture">
                   <div style="margin:2px;float:left;width:150px;height:150px;background-image:url('{{ picture.link_photo }}');background-repeat:no-repeat;background-size:cover;"></div>
+                  <p class="author" style="color:#FFF">{{ picture.id_user }}</p>
                   <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count"
                        data-action="like" data-size="small"
                        data-show-faces="true" data-share="true"></div>
@@ -47,9 +47,28 @@ Galerie
       </div>
       <footer class="clearfix">
         <div class="col tiers center-block" style="float:none;">
-            <a href="index.php?action=gallery" title="gallery" class="btn btn-dark">Voir la suite</a>
+
         </div>
       </footer>
     </div>
   </section>
+{% endblock %}
+
+{% block script %}
+    <script>
+        $(function(){
+            $('#search_user').keyup(function(){
+                var search = $(this).val().toLowerCase();
+                $('.picture').each(function(){
+                    var author = $(this).find('.author').html().toLowerCase();
+                    var result = author.search(search);
+                    if(result == -1) {
+                        $(this).hide();
+                    }else{
+                        $(this).show();
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

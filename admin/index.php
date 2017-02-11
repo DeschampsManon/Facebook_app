@@ -55,9 +55,11 @@ if($action === '') {
     MyController::loadTemplate('admin.tpl', array());
 }else if($action === 'livedit') {
 
-    if($_SERVER['REQUEST_METHOD'] == "POST") { }
+    $front = MyController::loadFrontOffice();
 
-    MyController::loadTemplate('livedit.tpl', array());
+    MyController::loadTemplate('livedit.tpl', array(
+        'front' => $front
+    ));
 }
 
 ?>

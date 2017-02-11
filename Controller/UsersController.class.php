@@ -27,5 +27,17 @@
 			$this->UsersModel->addUser($user);
 		}
 
+		public static function selectUserById($id) {
+		    $result = new UsersModel();
+		    $user = $result->selectUserById($id);
+
+		    return $user;
+        }
+
+        public static function setParticipation($id) {
+            $result = new UsersModel();
+            $result->setParticipation($id);
+        }
+
 	}
 ?>

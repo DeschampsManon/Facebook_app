@@ -58,9 +58,19 @@ if($_SESSION['COMPETITION'] == 1) {
           $onlyThreePictures[] = $pictures[1];
           $onlyThreePictures[] = $pictures[2];
 
+          $count = 0;
+          foreach($onlyThreePictures as $picture) {
+              $user = UsersController::selectUserById($picture['id_user']);
+              $onlyThreePictures[$count]['id_user'] = $user['name'].' '.$user['first_name'];
+              $count++;
+          }
+
+          $front = MyController::loadFrontOffice();
+
           MyController::loadTemplate('home.tpl', array(
               'admin' => $_SESSION['admin'],
-              'pictures' => $onlyThreePictures
+              'pictures' => $onlyThreePictures,
+              'front' => $front
           ));
       }
       else if ($action === 'gallery'){
@@ -68,6 +78,13 @@ if($_SESSION['COMPETITION'] == 1) {
           // TODO envoyer le nom des auteurs avec les photos
           $instance = new PicturesController();
           $pictures = $instance->getAllPictures();
+
+          $count = 0;
+          foreach($pictures as $picture) {
+              $user = UsersController::selectUserById($picture['id_user']);
+              $pictures[$count]['id_user'] = $user['name'].' '.$user['first_name'];
+              $count++;
+          }
 
           MyController::loadTemplate('gallery.tpl', array(
               'pictures' => $pictures
@@ -90,41 +107,57 @@ if($_SESSION['COMPETITION'] == 1) {
 
               $instance = new PicturesController();
               $instance->addPicture($pic);
+
+              UsersController::setParticipation($vars['user']['id']);
+
+              // On charge le template participate.tpl
+              MyController::loadTemplate('participate.tpl', $vars);
+
           }else {
 
-              $response = MyController::$fb->get('/me/albums?fields=name');
-              $albums = $response->getDecodedBody();
-              $images = array();
-              $albumsNames = array();
-              $count = 0;
+              $user = UsersController::selectUserById($vars['user']['id']);
 
-              foreach ($albums['data'] as $key => $album) {
+              if($user['participation'] != 1) {
 
-                  $response = MyController::$fb->get('/' . $album['id'] . '/photos?fields=source');
-                  $photos = $response->getDecodedBody();
+                  $response = MyController::$fb->get('/me/albums?fields=name');
+                  $albums = $response->getDecodedBody();
+                  $images = array();
+                  $albumsNames = array();
+                  $count = 0;
 
-                  $albumsNames[] = $album['name'];
+                  foreach ($albums['data'] as $key => $album) {
 
-                  foreach ($photos['data'] as $key => $photo) {
+                      $response = MyController::$fb->get('/' . $album['id'] . '/photos?fields=source');
+                      $photos = $response->getDecodedBody();
 
-                      $images[] = $photo['source'];
+                      $albumsNames[] = $album['name'];
+
+                      foreach ($photos['data'] as $key => $photo) {
+
+                          $images[] = $photo['source'];
+                      }
+
+                      $imagesToLoad[$count] = $images;
+                      $images = array('');
+
+                      $count++;
                   }
 
-                  $imagesToLoad[$count] = $images;
-                  $images = array('');
+                  $vars = array(
+                      'images' => $imagesToLoad,
+                      'albums' => $albumsNames,
+                  );
 
-                  $count++;
+                  // On charge le template participate.tpl
+                  MyController::loadTemplate('participate.tpl', $vars);
+
+              }else{
+                  echo 'VOUS AVEZ DEJA PARTICIPÉ';
               }
-
-              $vars = array(
-                  'images' => $imagesToLoad,
-                  'albums' => $albumsNames,
-              );
 
           }
 
-          // On charge le template participate.tpl
-          MyController::loadTemplate('participate.tpl', $vars);
+
       }
       else {
           // On charge le template index.tpl avec les variables du tableau précédent
@@ -133,6 +166,7 @@ if($_SESSION['COMPETITION'] == 1) {
   }
 
 }else{
+    // TODO Faire une page pour ça
     echo "Pas de concours activé";
 }
 

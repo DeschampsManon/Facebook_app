@@ -9,6 +9,42 @@
         <link rel="stylesheet" href="/assets/stylesheet/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
         <link rel="stylesheet" href="/assets/stylesheet/main.css">
+        <style>
+            #reward input {
+                position: absolute;
+                top: -10px;
+            }
+
+            #validate {
+                position: fixed;
+                bottom: 15px;
+                left: 15px;
+                min-width: 50px;
+                height: 35px;
+                background: orange;
+                border: 0px;
+                border-radius: 5px;
+                color: #FFF;
+                padding: 5px;
+            }
+
+            #close {
+                position: fixed;
+                bottom: 60px;
+                left: 15px;
+                min-width: 50px;
+                height: 35px;
+                background: orange;
+                border: 0px;
+                border-radius: 5px;
+                color: #FFF;
+                padding: 5px;
+            }
+
+            .acenter {
+                left: 50% !important;
+            }
+        </style>
         {% block head %}
         {% endblock %}
     </head>
@@ -58,41 +94,161 @@
 
             $(function() {
 
-                $('.editable').on('click', function() {
+                $('.editable').on('click', function(e) {
+                    e.stopPropagation();
+
+                    $('.editable-input').remove();
 
                     var divHtml = $(this).html();
                     var name = $(this).attr('name');
-                    var editableText = $("<textarea name=""></textarea>");
+                    var generateId = Math.floor((9999)*Math.random()+1)
 
-                    editableText.val(divHtml);
-                    $(this).replaceWith(editableText);
-                    editableText.focus();
+                    /* CSS */
+                    var csscolor = $(this).css('color');
+                    var csswidth = $(this).width();
+                    var cssheight = $(this).height();
+                    var cssfont = $(this).css('font');
+                    var cssfontsize = $(this).css('font-size');
+                    var csstransform = $(this).css('text-tranform');
+                    var cssbackground = $(this).css('background-color');
+
+                    if(name == "title" || name == "title2") {
+                        divHtml = divHtml.toUpperCase();
+                    }
+
+                    if($(this).attr('textarea') == "yes") {
+                        var editableText = '<textarea class="editable-input" id="i' + generateId + '" name="'+ name +'"></textarea>';
+                    }else {
+                        var editableText = '<input class="editable-input" id="i' + generateId + '" type="text" name="' + name + '">';
+                    }
+
+                    $(this).after(editableText);
+
+
+                    $('#i'+generateId).css('color', csscolor);
+                    $('#i'+generateId).css('width', csswidth + 25);
+                    $('#i'+generateId).css('height', cssheight);
+                    $('#i'+generateId).css('font', cssfont);
+                    $('#i'+generateId).css('font-size', cssfontsize);
+                    $('#i'+generateId).css('text-tranform', csstransform);
+                    $('#i'+generateId).css('background-color', cssbackground);
+
+
+                    $('#i'+generateId).val(divHtml);
+                    $(this).css('display', 'none');
+                    $('#i'+generateId).focus();
+
+                    $('.editable').unbind('click');
+                });
+
+                $('body').click(function(e){
+                    e.stopPropagation();
+
+                    if($(e.target).hasClass('editable-input')) {
+
+                    }else{
+                        $('.editable-input').each(function(){
+                            value = $(this).val();
+                            if($(this).is(':visible')) {
+                                $(this).prev().html(value);
+                                $(this).hide();
+                            }
+                        });
+                        $('.editable').bind('click', editable);
+
+                        $('.editable').show();
+                    }
 
                 });
 
+
+                var editable = function(e) {
+                    e.stopPropagation();
+
+                    $('.editable-input').remove();
+
+                    var divHtml = $(this).html();
+                    var name = $(this).attr('name');
+                    var generateId = Math.floor((9999)*Math.random()+1)
+
+                    /* CSS */
+                    var csscolor = $(this).css('color');
+                    var csswidth = $(this).width();
+                    var cssheight = $(this).height();
+                    var cssfont = $(this).css('font');
+                    var cssfontsize = $(this).css('font-size');
+                    var csstransform = $(this).css('text-tranform');
+                    var cssbackground = $(this).css('background-color');
+
+                    if(name == "title" || name == "title2") {
+                        divHtml = divHtml.toUpperCase();
+                    }
+
+                    if($(this).attr('textarea') == "yes") {
+                        var editableText = '<textarea class="editable-input" id="i' + generateId + '" name="'+ name +'"></textarea>';
+                    }else {
+                        var editableText = '<input class="editable-input" id="i' + generateId + '" type="text" name="' + name + '">';
+                    }
+
+                    $(this).after(editableText);
+
+
+                    $('#i'+generateId).css('color', csscolor);
+                    $('#i'+generateId).css('width', csswidth + 25);
+                    $('#i'+generateId).css('height', cssheight);
+                    $('#i'+generateId).css('font', cssfont);
+                    $('#i'+generateId).css('font-size', cssfontsize);
+                    $('#i'+generateId).css('text-tranform', csstransform);
+                    $('#i'+generateId).css('background-color', cssbackground);
+
+
+                    $('#i'+generateId).val(divHtml);
+                    $(this).css('display', 'none');
+                    $('#i'+generateId).focus();
+                    $('.editable').unbind('click');
+                }
+
+
                 $('#validate').on('click', function() {
 
-                    var html = $(this).val();
-                    var viewableText = $("<h2>");
 
-                    viewableText.html(html);
-                    $(this).replaceWith(viewableText);
+                    $('.editable').each(function(){
+                        var name = $(this).attr('name');
+                        var value = $(this).html();
+                        $('#form').append('<input type="text" name="'+ name +'" value="'+ value +'">');
+                    });
+
+                    console.log(document.getElementById('form').innerHTML);
+
+                    var url = "./traitement.php";
 
                     $.ajax({
                         type: "POST",
                         url: url,
-                        data: data,
-                        success: success,
-                        dataType: dataType
+                        data: $('#form').serialize(),
+                        dataType: 'html',
+                        success: function(response) {
+                            if(response == 1) {
+
+                            }else{
+
+                            }
+                        },
+
+                        error: function() {
+
+                        }
                     });
+
+
+                    $('#form').html('');
 
                 });
 
+
             });
 
-            $('a').click(function(){
-                return false;
-            });
+
         </script>
         {% block script %}
         {% endblock %}

@@ -236,14 +236,14 @@ label{
 }
 
 .select-hidden {
-  display: none;
-  visibility: hidden;
+  /*display: none;*/
+  /*visibility: hidden;*/
   padding-right: 10px;
 }
 
 .select-hidden {
-  display: none;
-  visibility: hidden;
+  /*display: none;*/
+  /*visibility: hidden;*/
   padding-right: 10px;
 }
 
@@ -649,4 +649,44 @@ label{
 
 .album .grid-item{
   margin-bottom: 2rem;
+}
+
+/********************* ADMIN *********************/
+
+.input-admin {
+  position: relative;
+  width: 300px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(167, 169, 172, 1);
+  background: #fff;
+  border: 1px solid rgba(167, 169, 172, 1);
+}
+
+label {
+  position: relative;
+  left: 50%;
+  transform: translateX(-18%);
+  color: #FFF;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  position: relative;
+  width: 500px;
+  height: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px;
+  color: rgba(167, 169, 172, 1);
+}
+
+input[type=submit] {
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.label-textarea {
+  left: 37%;
 }

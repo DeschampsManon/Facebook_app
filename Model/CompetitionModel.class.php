@@ -27,12 +27,16 @@ class CompetitionModel extends MyModel {
         $request = MyController::$bdd->query('SELECT starting_date FROM concours WHERE stopped = 0');
         $result = $request->fetch(PDO::FETCH_ASSOC);
 
-        // TODO verifier si tout marche correctement
         $today = date('U');
         $start = date('U', strtotime($result['starting_date']));
 
         if(($start - $today) <= 0) {
-            $request = MyController::$bdd->exec('UPDATE concours SET status = 1 WHERE stopped = 0');
+            $request = MyController::$bdd->query('SELECT status FROM concours WHERE stopped = 0');
+            $result = $request->fetch(PDO::FETCH_ASSOC);
+            if($result['status'] != 1) {
+                $request = MyController::$bdd->exec('UPDATE concours SET status = 1 WHERE stopped = 0');
+                $request = MyController::$bdd->exec('UPDATE users SET participation = 0');
+            }
             $request = MyController::$bdd->query('SELECT id_concours FROM concours WHERE status = 1');
             $result = $request->fetch(PDO::FETCH_ASSOC);
 

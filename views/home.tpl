@@ -13,9 +13,9 @@ Accueil
             <article>
                 <fieldset class="moitie relative">
                     <legend> concours photo </legend>
-                    <h2>the best tatoo</h2>
+                    <h2>{{ front.title }}</h2>
                     <p>
-                        Pardon maman organise un concours photos de tatouage. Tu as jusqu’au 28 février 2017 pour poster ton meilleur tatouage et voter pour celui que tu trouves le plus impressionant.
+                        {{ front.texte }}
                     </p>
                     <a href="index.php?action=participate" title="participate" class="btn btn-gold">je participe</a>
                 </fieldset> 
@@ -30,7 +30,7 @@ Accueil
             <article class="col moitie">
                 <div class="relative">
                     <h2>free tatoo</h2>
-                    <h3>une superbe récompense</h3>
+                    <h3>{{ front.title2 }}</h3>
                     <p>
                         Aucun doute ! Tu seras notre prochain gagnant. Tu auras donc la possibilité de choisir l’un de nos talentueux artistes pour te faire tatouer gratuitement l’oeuvre de ton choix.
                     </p>
@@ -47,7 +47,8 @@ Accueil
             <div class="clearfix">
                 {% for picture in pictures %}
                 <article class="col tiers">
-                    <img src="{{ picture.link_photo }}">
+                    <div style="margin:2px;float:left;width:150px;height:150px;background-image:url('{{ picture.link_photo }}');background-repeat:no-repeat;background-size:cover;"></div>
+                    <p class="author" style="color:#FFF">{{ picture.id_user }}</p>
                     <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count"
                          data-action="like" data-size="small"
                          data-show-faces="true" data-share="true"></div>

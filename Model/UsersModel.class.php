@@ -63,5 +63,22 @@
 			return $existingUser;
 		}
 
+		public function selectUserById($id) {
+		    $request = MyController::$bdd->prepare('SELECT * FROM users WHERE id_user = :id');
+		    $request->execute(array(
+		        ':id' => $id
+            ));
+		    $result = $request->fetch(PDO::FETCH_ASSOC);
+
+		    return $result;
+        }
+
+        public function setParticipation($id) {
+            $request = MyController::$bdd->prepare('UPDATE users SET participation = 1 WHERE id_user = :id');
+            $request->execute(array(
+                ':id' => $id
+            ));
+        }
+
 	}
 ?>
