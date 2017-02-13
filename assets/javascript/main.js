@@ -48,26 +48,26 @@ function custom_select(){
         $styledSelect.removeClass('active');
         $list.hide();
     });
+  });
+}
 
-});
+function custom_input_file(){
+  $('input[type="file"]').change(function(){
+    alert("a");
+    var value = $("input[type='file']").val();
+    $('.js-value').text(value);
+  });
 }
 
 function display_album() {
   var rel = $(this).attr("rel");
   $('#pictures .album').addClass("hidden");
   $('#pictures .album[album='+rel+']').removeClass("hidden");
-  //alert($('#pictures .album').attr("class"));
-  // if($(this).attr("rel") == ""){
-  //   $('#pictures .album').addClass("hidden");
-  // }
-  // else{
-    
-  //}
-  // $('.album[album='+album+']').show();
 }
 
 $(document).ready(function(){
   gallery_masonry();
   custom_select();
+  custom_input_file();
   $('.select-options li').click(display_album);
 })

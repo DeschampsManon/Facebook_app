@@ -66,12 +66,6 @@ textarea{
 	color:#fff;
 }
 
-input{
-	height: 4rem;
-   	padding: 0 1.2rem;
-   	background-color: rgba(167, 169, 172, .08);
-}
-
 fieldset{
 	border-color:transparent;
 }
@@ -179,6 +173,10 @@ p{
 
 /********************* SPACING *********************/
 
+.no-margin{
+  margin: 0!important;
+}
+
 .no-padding-left{
 	padding-left: 0
 }
@@ -251,7 +249,6 @@ label{
   color: #fff;
   width: 100%;
   height: 40px;
-  /*margin-bottom: 10px;*/
   font-size: 14px;
 }
 
@@ -326,8 +323,37 @@ label{
   display: none;
 }
 
+.filupp > input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
+.filupp {
+  position: relative;
+  background-color: rgba(255,255,255,.1);
+  display: block;
+  padding: 12px;
+  font-size: 14px;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  cursor: pointer;
+  text-transform: none;
+}
 
+.filupp:before {
+  content: '\f019';
+  font-family: "FontAwesome";
+  position: absolute;
+  top: 13px;
+  right: 12px;
+}
 
 /********************* MAIN HEADER *********************/
 
@@ -623,25 +649,6 @@ label{
   font-size: 1.3rem;
 }
 
-#pictures .container{
-  background-color: #272727;
-  min-height: 100vh;
-}
-
-/*#pictures > div > div,
-#pictures > div > footer{
-  padding:4rem 0;
-  background-color: #272727;
-}
-
-#pictures > div > footer{
-  padding-top: 0;
-}
-
-#pictures img{
-  margin-bottom: 2rem;
-}*/
-
 /********************* ALBUM *********************/
 
 #gallery{
@@ -690,6 +697,28 @@ label{
 
 .user-picture > div > .user-data .fb-like{
   float: right;
+}
+
+#pictures .container{
+  background-color: #272727;
+  min-height: 100vh;
+}
+
+#pictures #user-picture-upload{
+  padding-top:20px;
+  padding-bottom: 20px;
+}
+
+#pictures form input[type="submit"]{
+  width: initial;
+  float: right;
+  font-size: 16px;
+  background: #b29e7e;
+  padding: 5.5px 20px;
+}
+
+#pictures form input[type="submit"]:hover{
+  opacity: .8;
 }
 
 /********************* ADMIN *********************/

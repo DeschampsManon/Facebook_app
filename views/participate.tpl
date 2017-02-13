@@ -39,24 +39,16 @@
             </div>
             {% set count = count + 1 %}
         {% endfor %}
-    
-    <!-- <article class="col tiers user-picture">
-                    <div style="background-image:url('{{ picture.link_photo }}');">
-                        <div class="user-data">
-                            <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-                            <p class="author">{{ picture.id_user }}</p>
-                        </div>
-                    </div>
-                </article> -->
-
-        <!-- <div class="clearfix">
-            
-            <form method="post" action="upload.php" enctype="multipart/form-data">
+        <form id="user-picture-upload" method="post" action="upload.php" enctype="multipart/form-data" class="col total">
+            <label>Importer une photo depuis ton ordinateur</label>
+            <label class="filupp no-margin">
+                <span class="filupp-file-name js-value">Choisis un fichier</span>
                 <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
                 <input type="file" accept="image/jpg, image/png" name="file">
-                <input type="submit" value="Envoyer">
-            </form>
-        </div> -->
+            </label>
+            
+            <input type="submit" value="Importer">
+        </form>
     </div>
 </section>
 
@@ -68,11 +60,6 @@
 {% block script %}
     <script>
     $(function(){
-        $('select').change(function(){
-            album = $(this).val();
-            $('.album').hide();
-            $('.album[album='+album+']').show();
-        });
 
         $('label').click(function(){
             $('#form1 input[type=submit]').css('display', 'none');
