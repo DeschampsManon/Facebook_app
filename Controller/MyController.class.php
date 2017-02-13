@@ -38,6 +38,11 @@
 		    return $result;
         }
 
+        public static function updateFrontOffice($front) {
+		    $model = new MyModel();
+		    $result = $model->updateFrontOffice($front);
+        }
+
 		public static function error($message) {
 			echo '<div id="msg-error">' . $message . '</div>';
 		}

@@ -40,19 +40,36 @@ if (isset($_GET['action'])) {
 if($action === '') {
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
-        $competition = array(
-            'name' => $_POST['name'],
-            'starting_date' => $_POST['starting_date'],
-            'end_date' => $_POST['end_date'],
-            'reward' => $_POST['reward'],
-            'text_reward' => $_POST['text_reward']
-        );
 
-        $instance = new CompetitionController();
-        $instance->createCompetition($competition);
+        if($_POST['action'] == 'competition') {
+            $competition = array(
+                'name' => $_POST['name'],
+                'starting_date' => $_POST['starting_date'],
+                'end_date' => $_POST['end_date'],
+                'reward' => $_POST['reward'],
+                'text_reward' => $_POST['text_reward']
+            );
+
+            $instance = new CompetitionController();
+            $instance->createCompetition($competition);
+        }else if($_POST['action'] == 'front') {
+
+            $front = array(
+                'background-color' => $_POST['background'],
+                'cgu' => $_POST['cgu']
+            );
+
+
+
+            MyController::updateFrontOffice($front);
+        }
+
     }
 
-    MyController::loadTemplate('admin.tpl', array());
+    $frontloaded = MyController::loadFrontOffice();
+    MyController::loadTemplate('admin.tpl', array(
+        'front' => $frontloaded
+    ));
 }else if($action === 'livedit') {
 
     $front = MyController::loadFrontOffice();

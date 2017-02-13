@@ -1,5 +1,5 @@
 {
-  "require" : {
-    "twig/extensions": "^1.4"
-  }
+    "require": {
+        "phpmailer/phpmailer": "^5.2"
+    }
 }

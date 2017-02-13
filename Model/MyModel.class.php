@@ -13,5 +13,14 @@
 		    return $result;
         }
 
+        public function updateFrontOffice($front) {
+
+		    $request = MyController::$bdd->prepare('UPDATE frontoffice SET backgroundColor = ?, cgu = ?');
+		    $request->execute(array(
+		        $front['background-color'],
+                $front['cgu']
+            ));
+        }
+
 	}
 ?>

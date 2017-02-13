@@ -65,6 +65,7 @@ if($_SESSION['COMPETITION'] == 1) {
               $count++;
           }
 
+
           $front = MyController::loadFrontOffice();
 
           MyController::loadTemplate('home.tpl', array(
@@ -95,7 +96,7 @@ if($_SESSION['COMPETITION'] == 1) {
           if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
               $generatedId = rand(1,10000).''.rand(1,10000).''.rand(1,10000);
-              $generatedLink = 'http//fb.digital-rooster.fr/'.$generatedId;
+              $generatedLink = 'http://fb.digital-rooster.fr/'.$generatedId;
 
               $pic = array(
                   'id_photo' => $generatedId,
@@ -110,8 +111,15 @@ if($_SESSION['COMPETITION'] == 1) {
 
               UsersController::setParticipation($vars['user']['id']);
 
+              $data = array(
+                  'message' => 'Je participe au concours pardon maman ! Rejoignez moi !',
+                  'link' => 'http://fb.digital-rooster.fr'
+              );
+
+              $api->postRequest('/me/feed', $data);
+
               // On charge le template participate.tpl
-              MyController::loadTemplate('participate.tpl', $vars);
+              echo 'VOUS AVEZ DEJA PARTICIPÉ';
 
           }else {
 
@@ -158,7 +166,13 @@ if($_SESSION['COMPETITION'] == 1) {
           }
 
 
+      }else if($action === 'cgu') {
+          $front = MyController::loadFrontOffice();
+          MyController::loadTemplate('cgu.tpl', array(
+              'front' => $front
+          ));
       }
+
       else {
           // On charge le template index.tpl avec les variables du tableau précédent
           MyController::loadTemplate('index.tpl', $vars);
