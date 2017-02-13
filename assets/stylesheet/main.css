@@ -233,17 +233,13 @@ label{
   margin-bottom: 1rem;
   text-transform: uppercase;
   font-size: 12px;
+  text-align: left;
+  margin-top: 20px;
 }
 
 .select-hidden {
-  /*display: none;*/
-  /*visibility: hidden;*/
-  padding-right: 10px;
-}
-
-.select-hidden {
-  /*display: none;*/
-  /*visibility: hidden;*/
+  display: none;
+  visibility: hidden;
   padding-right: 10px;
 }
 
@@ -255,6 +251,8 @@ label{
   color: #fff;
   width: 100%;
   height: 40px;
+  /*margin-bottom: 10px;*/
+  font-size: 14px;
 }
 
 .select-styled {
@@ -263,8 +261,8 @@ label{
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(255,255,255,0.1);
-  padding: 10px 15px;
+  background-color: rgba(255,255,255,.1);
+  padding: 12px 15px;
   -moz-transition: all 0.2s ease-in;
   -o-transition: all 0.2s ease-in;
   -webkit-transition: all 0.2s ease-in;
@@ -278,16 +276,16 @@ label{
   border: 7px solid transparent;
   border-color: #fff transparent transparent transparent;
   position: absolute;
-  top: 16px;
+  top: 18px;
   right: 10px;
 }
 
 .select-styled:hover {
-  background-color: #b29e7e;
+  background-color: rgba(255,255,255,.15);
 }
 
 .select-styled:active, .select-styled.active {
-  background-color: #b29e7e;
+  background-color: rgba(255,255,255,.1);
 }
 
 .select-styled:active:after, .select-styled.active:after {
@@ -305,7 +303,7 @@ label{
   margin: 0;
   padding: 0;
   list-style: none;
-  background-color: #b29e7e;
+  background-color: #272727;
 }
 
 .select-options li {
@@ -317,11 +315,11 @@ label{
   -o-transition: all 0.15s ease-in;
   -webkit-transition: all 0.15s ease-in;
   transition: all 0.15s ease-in;
+  background-color: rgba(255,255,255,.1);
 }
 
 .select-options li:hover {
-  color: #fff;
-  background: rgba(255,255,255,.2);
+  background: rgba(255,255,255,.15);
 }
 
 .select-options li[rel="hide"] {
@@ -625,7 +623,12 @@ label{
   font-size: 1.3rem;
 }
 
-#pictures > div > div,
+#pictures .container{
+  background-color: #272727;
+  min-height: 100vh;
+}
+
+/*#pictures > div > div,
 #pictures > div > footer{
   padding:4rem 0;
   background-color: #272727;
@@ -637,7 +640,7 @@ label{
 
 #pictures img{
   margin-bottom: 2rem;
-}
+}*/
 
 /********************* ALBUM *********************/
 
@@ -649,6 +652,44 @@ label{
 
 .album .grid-item{
   margin-bottom: 2rem;
+}
+
+.user-picture > div,
+.user-picture label > div{
+  width: 100%;
+  height: 300px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-picture label > div {
+  height: 220px;
+}
+
+.user-picture > div > .user-data{
+  /*display: none;*/
+  position: absolute;
+  width: 100%;
+  height:100%;
+  padding: 10px;
+  background-color: rgba(0,0,0,.5);
+}
+
+.user-picture > div:hover > .user-data{
+  display: block;
+}
+
+.user-picture > div > .user-data .author{
+  color:#fff;
+  position: absolute;
+  bottom: 10px;
+  text-transform: uppercase;
+}
+
+.user-picture > div > .user-data .fb-like{
+  float: right;
 }
 
 /********************* ADMIN *********************/
@@ -664,12 +705,12 @@ label{
 }
 
 label {
-  position: relative;
+  /*position: relative;
   left: 50%;
   transform: translateX(-18%);
   color: #FFF;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 10px;*/
 }
 
 textarea {

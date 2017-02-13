@@ -5,12 +5,12 @@ function gallery_masonry(){
 }
 
 function custom_select(){
-  $('select').each(function(){
+ $('select').each(function(){
     var $this = $(this), numberOfOptions = $(this).children('option').length;
   
     $this.addClass('select-hidden'); 
     $this.wrap('<div class="select"></div>');
-    //$this.after('<div class="select-styled"></div>');
+    $this.after('<div class="select-styled"></div>');
 
     var $styledSelect = $this.next('div.select-styled');
     $styledSelect.text($this.children('option').eq(0).text());
@@ -41,9 +41,7 @@ function custom_select(){
         $styledSelect.text($(this).text()).removeClass('active');
         $this.val($(this).attr('rel'));
         $list.hide();
-        var album = $(this).attr("rel");
-        $('.album').hide();
-        $('.album[album='+album+']').show();
+        //console.log($this.val());
     });
   
     $(document).click(function() {
@@ -51,18 +49,25 @@ function custom_select(){
         $list.hide();
     });
 
-  });
+});
 }
 
 function display_album() {
-  alert(a);
-  
-  $('.album').hide();
-  $('.album[album='+album+']').show();
+  var rel = $(this).attr("rel");
+  $('#pictures .album').addClass("hidden");
+  $('#pictures .album[album='+rel+']').removeClass("hidden");
+  //alert($('#pictures .album').attr("class"));
+  // if($(this).attr("rel") == ""){
+  //   $('#pictures .album').addClass("hidden");
+  // }
+  // else{
+    
+  //}
+  // $('.album[album='+album+']').show();
 }
 
 $(document).ready(function(){
   gallery_masonry();
   custom_select();
-  //$('.select-options li').click(display_album);
+  $('.select-options li').click(display_album);
 })
