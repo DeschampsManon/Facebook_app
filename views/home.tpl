@@ -6,7 +6,7 @@ Accueil
 
 {% block content %}
     {{ parent() }}
-    <div class="fb-like" data-href="http://fb.digital-rooster.fr"
+    <div class="fb-like" data-href="http://fb.digital-rooster.fr/likes"
      data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <section class="clearfix" id="explications">
         <div class="container">
@@ -60,6 +60,7 @@ Accueil
                 <div class="col tiers center-block" style="float:none;">
                     <a href="index.php?action=gallery" title="gallery" class="btn btn-dark">Voir toutes les photos</a>
                 </div>
+                <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
             </footer>
         </div>  
     </section>

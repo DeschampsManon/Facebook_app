@@ -19,21 +19,6 @@
 <section class="clearfix" id="pictures">
     <div class="container">
         <div class="clearfix">
-            <!-- form upload -->
-            <!--<form method="post" action="index.php">
-                <input type="text" name="name" placeholder="Nom du concours">
-                <input type="date" name="starting_date" placeholder="Date de démarrage">
-                <input type="date" name="end_date" placeholder="Date de fin">
-                <input type="text" name="reward" placeholder="Récompense">
-                <textarea name="" style="color:#000" placeholder="Texte de récompense"></textarea>
-                <input type="submit" value="Envoyer">
-            </form>
-
-            <form method="post" action="index.php?action=front">
-                <input type="text" name="background" placeholder="background color">
-                <textarea name="cgu" placeholder="CGU"></textarea>
-                <input type="submit" name="send" value="Envoyer">
-            </form>-->
             <section class="clearfix" id="last_participants">
                 <div class="container">
                     <header class="relative col total">
@@ -58,24 +43,24 @@
                             <div class="col tiers center-block" style="float:none;">
                                 <input type="submit">
                             </div>
+                            <input type="hidden" name="action" value="competition">
                         </form>
                     </header>
                     <header class=" relative col total">
                         <hr>
                         <h3 class="acenter">Réglages</h3>
-                        <form>
-                            <label for="color">Color</label>
-                            <input type="text" id="color" class="input-admin" value="">
+                        <form method="post" action="index.php">
 
                             <label for="bgcolor">Background color</label>
-                            <input type="text" id="bgcolor" class="input-admin" value="">
+                            <input type="text" id="bgcolor" placeholder="#000000" name="background" class="input-admin" value="{{ front.backgroundcolor }}">
 
                             <label for="cgu" class="label-textarea">CGU</label>
-                            <textarea id="cgu"></textarea>
+                            <textarea id="cgu" name="cgu" >{{ front.cgu }}</textarea>
 
                             <div class="col tiers center-block" style="float:none;">
                                 <input type="submit">
                             </div>
+                            <input type="hidden" name="action" value="front">
                         </form>
                     </header>
                     <header class=" relative col total">
