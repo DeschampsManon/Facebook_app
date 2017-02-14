@@ -51,6 +51,11 @@
                 <input type="hidden" name="action" value="front">
             </form>
         </article>
+        <article class="clearfix admin-form padding-bot-20" style="clear:both;">
+            <div class="col tiers center-block" style="float:none;">
+                <a href="index.php?action=livedit" title="live-edit" class="btn btn-dark">Accéder au live edit</a>
+            </div>
+        </article>
         <article class="col total admin-form padding-bot-20">
             <header class="clearfix relative total">
                 <hr>
@@ -58,14 +63,10 @@
             </header>
             <div>
                 <label>Exporter les résultats du concours</label>
-                <a href="#!" id="export-result">Exporter au format xml</a>
+                <a href="../export.php" target="_blank" id="export-result">Exporter au format xml</a>
             </div>
         </article>
-        <article class="clearfix admin-form padding-bot-20" style="clear:both;">
-            <div class="col tiers center-block" style="float:none;">
-                <a href="index.php?action=livedit" title="live-edit" class="btn btn-dark">Accéder au live edit</a>
-            </div>
-        </article>
+
     </div>
 </section>
 

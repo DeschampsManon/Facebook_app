@@ -52,6 +52,15 @@ if($_SESSION['COMPETITION'] == 1) {
           $onlyThreePictures[] = $pictures[1];
           $onlyThreePictures[] = $pictures[2];
 
+          $counter = 0;
+          foreach($onlyThreePictures as $picture) {
+              if($picture == "") {
+                    unset($onlyThreePictures[$counter]);
+              }
+
+              $counter++;
+          }
+
           $count = 0;
           foreach($onlyThreePictures as $picture) {
               $user = UsersController::selectUserById($picture['id_user']);
