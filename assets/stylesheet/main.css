@@ -627,6 +627,12 @@ label{
   right: 0;
 }
 
+.no-result-found{
+  color: #fff;
+  font-style: italic;
+  padding-top: 20px;
+}
+
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
   font-style: italic;
   font-weight: 300;

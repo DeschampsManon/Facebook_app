@@ -65,9 +65,32 @@ function display_album() {
   $('#pictures .album[album='+rel+']').removeClass("hidden");
 }
 
+function search_user(){
+  var search = $(this).val().toLowerCase();
+  console.log(search)
+  $('.user-picture').each(function(){
+      var author = $(this).find('.author').html().toLowerCase();
+      var result = author.search(search);
+      if(result == -1) {
+        $(this).hide();
+        $(".no-result-found").removeClass("hidden");
+      }else{
+        $(this).show();
+        $(".no-result-found").removeClass("hidden");
+      }
+  });
+}
+
+
 $(document).ready(function(){
   gallery_masonry();
   custom_select();
   custom_input_file();
   $('.select-options li').click(display_album);
+  $('#search-user').keyup(search_user);
 })
+
+
+
+
+
