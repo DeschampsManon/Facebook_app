@@ -8,20 +8,6 @@ Galerie
 {{ parent() }}
  <section class="clearfix" id="filters">
     <div class="container">
-      <nav>
-        <span>Filtrer par</span>
-        <ul>
-          <li class="active">
-            <a href="#!">Date</a>
-          </li>
-          <li>
-            <a href="#!">Amis</a>
-          </li>
-          <li>
-            <a href="#!">Likes</a>
-          </li>
-        </ul>
-      </nav>
       <form action="" method="get" class="relative">
         <input type="text" id="search_user" placeholder="chercher un participant">
       </form>

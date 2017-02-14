@@ -53,19 +53,4 @@
     </div>
 </section>
 
-
-
-
-{% endblock %}
-
-{% block script %}
-    <script>
-    $(function(){
-
-        // $('#pictures .user-picture .check-picture').click(function(){
-        //     $('#form1 input[type=submit]').addClass('hidden');
-        //     $(this).parent().find('button[type="submit"]').removeClass('hidden');
-        // });
-    });
-    </script>
 {% endblock %}
