@@ -29,7 +29,7 @@ if (isset($_FILES['file'])){
 
 			$path = $uploadfile;
 
-			$data = ['message' => '[TEST API] Je participe au concours pardon maman ! Voici ma photo :) Rejoignez le concours : {{link}}',
+			$data = ['message' => 'Je participe au concours pardon maman ! Voici ma photo :) Rejoignez le concours : https://www.facebook.com/Concours-photo-pardon-maman-Community-1926870424202660/',
 	 		 'source' => MyController::$fb->fileToUpload($path),
 			];
 

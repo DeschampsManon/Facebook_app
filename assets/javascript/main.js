@@ -53,7 +53,6 @@ function custom_select(){
 
 function custom_input_file(){
   $('input[type="file"]').change(function(){
-    alert("a");
     var value = $("input[type='file']").val();
     $('.js-value').text(value);
   });

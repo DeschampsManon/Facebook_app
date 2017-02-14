@@ -26,9 +26,10 @@
                     {% if image != '' %}
                         <article class="col quart user-picture">
                             <form method="post" action="index.php?action=participate" id="form1">
-                                <label for="radio{{ countRadio }}">
-                                    <input type="radio" id="radio{{ countRadio }}" name="link_photo" class="hidden" value="{{ image }}">
+                                <label>
+                                    <!--<input type="radio" id="radio{{ countRadio }}" name="link_photo" class="hidden" value="{{ image }}" selected>-->
                                     <div style="background-image:url('{{ image }}');"></div>
+                                    <input type="hidden" name="link_photo" value="{{ image }}">
                                 </label>
                                 <button type="submit" class="submit-picture">
                                     <i class="fa fa-check-circle-o"></i>
