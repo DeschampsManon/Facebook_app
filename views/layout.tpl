@@ -47,12 +47,15 @@
             </script>
         {% endblock %}
 
-        <footer>
-            {% block footer %}
-            {% endblock %}
-            {% if admin == 1 %}
-                <a href="admin/index.php">Administration</a>
-            {% endif %}
+        <footer class="main-footer">
+            <div class="container">
+                {% block footer %}
+                {% endblock %}
+                <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
+                {% if admin == 1 %}
+                    <a href="admin/index.php">Administration</a>
+                {% endif %}
+            </div>
         </footer>
         <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>
         <script type="text/javascript" src="/assets/javascript/masonry.js"></script>

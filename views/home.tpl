@@ -60,7 +60,6 @@ Accueil
                 <div class="col tiers center-block" style="float:none;">
                     <a href="index.php?action=gallery" title="gallery" class="btn btn-dark">Voir toutes les photos</a>
                 </div>
-                <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
             </footer>
         </div>  
     </section>

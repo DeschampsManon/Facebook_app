@@ -751,6 +751,21 @@ label{
   font-size: 55px;
 }
 
+/********************* MAIN FOOTER *********************/
+
+.main-footer{
+  padding: 15px 0;
+}
+
+.main-footer a{
+  color: #272727;
+  text-transform: uppercase;
+}
+
+.main-footer a:hover{
+  color: #b29e7e;
+}
+
 /********************* ADMIN *********************/
 
 .input-admin {
