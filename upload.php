@@ -20,9 +20,11 @@ if (isset($_FILES['file'])){
 
 	$name = $_FILES['file']['name'];
 	$temp_name = $_FILES['file']['tmp_name'];
+    $array = explode('.', $_FILES['file']['name']);
+    $extension = strtolower(end($array));
 	
 	$uploaddir = 'uploads/';
-	$uploadfile = $uploaddir . basename($name.rand(1,99999).rand(1,99999));
+	$uploadfile = $uploaddir . 'i' . rand(1,99999).rand(1,99999) . '.' .$extension;
 
 
 		if(move_uploaded_file($temp_name, $uploadfile)){

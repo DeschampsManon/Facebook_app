@@ -40,9 +40,35 @@ a{
 	text-decoration:none;
 }
 
+.good {
+  color: #FFF;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-top: 25px;
+  background: #20E689;
+}
+
+.bad {
+  background: #E62020;
+  color: #FFF;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  margin-top: 25px;
+  background: #20E689;
+}
+
 ul,
 ol{
 	list-style-type:none;
+}
+
+#information {
+    text-align: center;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 50px;
 }
 
 img,

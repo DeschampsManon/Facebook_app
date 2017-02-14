@@ -5,6 +5,13 @@
 <section class="clearfix" id="pictures">
     <div class="container">
         <article class="col total">
+
+            {% if upload == true %}
+                <div id="boxmessage" class="good">{{ message }}</div>
+            {% elseif upload == false %}
+                <div id="boxmessage" class="red">{{ message }}</div>
+            {% endif %}
+
             {% set count = 0 %}
             <label>Ajouter une photo depuis facebook</label>
             <select name="albums">

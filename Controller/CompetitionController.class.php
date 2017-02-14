@@ -34,5 +34,10 @@ class CompetitionController extends MyController {
         $this->competitionModel->tryToStartCompetition();
     }
 
+    public function getCompetitionById($id) {
+        $result = $this->competitionModel->getCompetitionById($id);
+        return $result;
+    }
+
 }
 ?>

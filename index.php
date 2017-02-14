@@ -30,6 +30,7 @@
 	);
 	// ***********************
 
+
 if($_SESSION['COMPETITION'] == 1) {
 
   $action = '';
@@ -76,7 +77,6 @@ if($_SESSION['COMPETITION'] == 1) {
       }
       else if ($action === 'gallery'){
           // On charge le template gallery.tpl
-          // TODO envoyer le nom des auteurs avec les photos
           $instance = new PicturesController();
           $pictures = $instance->getAllPictures();
 
@@ -103,7 +103,7 @@ if($_SESSION['COMPETITION'] == 1) {
                   'link_photo' => $_POST['link_photo'],
                   'link_like' => $generatedLink,
                   'id_user' => $vars['user']['id'],
-                  'id_concours' => 1 // TODO Mettre variable de session id concours a la place
+                  'id_concours' => $_SESSION['id_concours']
               );
 
               $instance = new PicturesController();
@@ -119,7 +119,7 @@ if($_SESSION['COMPETITION'] == 1) {
               $api->postRequest('/me/feed', $data);
 
               // On charge le template participate.tpl
-              echo 'VOUS AVEZ DEJA PARTICIPÉ';
+              MyController::loadTemplate('wait.tpl', array());
 
           }else {
 
@@ -151,16 +151,40 @@ if($_SESSION['COMPETITION'] == 1) {
                       $count++;
                   }
 
+                  $upload = '';
+                  $message = '';
+
+                  if(isset($_GET['upload'])) {
+
+                      if ($_GET['upload'] == "Ok") {
+                          $upload = true;
+                          $message = "Votre photo a été ajoutée à l'album Concours photo pardon maman, vous
+                      pouvez désormais la séléctionner";
+                      } else {
+                          $upload = false;
+                          $message = "Une erreur est survenue lors de l'envoi de votre photo, veuillez recommencer";
+                      }
+
+                  }
+
                   $vars = array(
                       'images' => $imagesToLoad,
                       'albums' => $albumsNames,
+                      'upload' => $upload,
+                      'message' => $message
                   );
 
                   // On charge le template participate.tpl
                   MyController::loadTemplate('participate.tpl', $vars);
 
               }else{
-                  echo 'VOUS AVEZ DEJA PARTICIPÉ';
+
+                  $instance = new CompetitionController();
+                  $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+
+                  MyController::loadTemplate('wait.tpl', array(
+                      'end' => $competition['end_date']
+                  ));
               }
 
           }

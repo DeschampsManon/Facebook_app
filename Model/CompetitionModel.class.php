@@ -46,5 +46,12 @@ class CompetitionModel extends MyModel {
 
         }
     }
+
+    public function getCompetitionById($id) {
+        $request = MyController::$bdd->query('SELECT * FROM concours WHERE id_concours = '.$_SESSION['id_concours']);
+        $result = $request->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
 }
 ?>
