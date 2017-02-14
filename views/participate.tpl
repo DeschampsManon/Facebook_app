@@ -30,7 +30,9 @@
                                     <input type="radio" id="radio{{ countRadio }}" name="link_photo" class="hidden" value="{{ image }}">
                                     <div style="background-image:url('{{ image }}');"></div>
                                 </label>
-                                <input type="submit" value="Envoyer" style="display: none;">
+                                <button type="submit" class="submit-picture">
+                                    <i class="fa fa-check-circle-o"></i>
+                                </button>
                             </form>
                         </article>
                     {% endif %}
@@ -46,8 +48,7 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
                 <input type="file" accept="image/jpg, image/png" name="file">
             </label>
-            
-            <input type="submit" value="Importer">
+            <input type="submit" value="Envoyer">
         </form>
     </div>
 </section>
@@ -61,10 +62,10 @@
     <script>
     $(function(){
 
-        $('label').click(function(){
-            $('#form1 input[type=submit]').css('display', 'none');
-            $(this).next('input').css('display','block');
-        });
+        // $('#pictures .user-picture .check-picture').click(function(){
+        //     $('#form1 input[type=submit]').addClass('hidden');
+        //     $(this).parent().find('button[type="submit"]').removeClass('hidden');
+        // });
     });
     </script>
 {% endblock %}

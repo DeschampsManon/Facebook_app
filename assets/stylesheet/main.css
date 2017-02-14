@@ -704,6 +704,10 @@ label{
   min-height: 100vh;
 }
 
+#pictures .user-picture{
+  position: relative;
+}
+
 #pictures #user-picture-upload{
   padding-top:20px;
   padding-bottom: 20px;
@@ -719,6 +723,24 @@ label{
 
 #pictures form input[type="submit"]:hover{
   opacity: .8;
+}
+
+#pictures .user-picture:hover .submit-picture{
+  display: block;
+}
+
+#pictures .user-picture .submit-picture{
+  display: none;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  height: 220px;
+  width: 90%;
+  z-index: 7;
+  background: rgba(0,0,0,.8);
+  border: 0 solid transparent;
+  color: rgba(255,255,255,.5);
+  font-size: 55px;
 }
 
 /********************* ADMIN *********************/
