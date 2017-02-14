@@ -751,6 +751,11 @@ label{
   font-size: 55px;
 }
 
+#pictures .user-picture .submit-picture:focus{
+  border: 0 solid transparent;
+  outline: none;
+}
+
 /********************* MAIN FOOTER *********************/
 
 .main-footer{
