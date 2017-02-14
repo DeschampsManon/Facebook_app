@@ -1,9 +1,6 @@
 <?php
     session_start();
 
-    error_reporting(E_ALL);
-    ini_set('display_errors', 1);
-
     require __DIR__.'/loaders/dependencies.php';
     require __DIR__.'/loaders/classLoader.php';
     require __DIR__.'/loaders/bdd.php';
