@@ -62,8 +62,7 @@
                 <h3 class="acenter">Résultats du concours</h3>
             </header>
             <div>
-                <!-- <label>Exporter les résultats du concours</label> -->
-                <a href="#!" id="export-result">Exporter au format xml</a>
+                <a href="../export.php" target="_blank" id="export-result">Exporter au format xls</a>
             </div>
         </article>
     </div>
