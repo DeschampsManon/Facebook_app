@@ -75,7 +75,7 @@
         $request = MyController::$bdd->query('SELECT first_name, name FROM users WHERE id_user = '. $photo['id_user']);
         $result = $request->fetch(PDO::FETCH_ASSOC);
 
-        if($countLikes == "") { $countLikes = 0 }
+        if($countLikes == "") { $countLikes = 0; }
 
         $resultats[$count]['user'] = $result['first_name'] . ' ' . $result['name'];
         $resultats[$count]['link_photo'] = $photo['link_photo'];
