@@ -17,19 +17,16 @@ Galerie
   <section class="clearfix" id="pictures">
     <div class="container">
       <div class="clearfix">
-
-
           {% for picture in pictures %}
-              <div class="col tiers picture">
-                  <div style="margin:2px;float:left;width:150px;height:150px;background-image:url('{{ picture.link_photo }}');background-repeat:no-repeat;background-size:cover;"></div>
-                  <p class="author" style="color:#FFF">{{ picture.id_user }}</p>
-                  <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count"
-                       data-action="like" data-size="small"
-                       data-show-faces="true" data-share="true"></div>
+            <article class="col tiers user-picture margin-bot-20">
+              <div style="background-image:url('{{ picture.link_photo }}');">
+                  <div class="user-data">
+                      <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                      <p class="author">{{ picture.id_user }}</p>
+                  </div>
               </div>
+            </article>
           {% endfor %}
-
-
       </div>
       <footer class="clearfix">
         <div class="col tiers center-block" style="float:none;">
