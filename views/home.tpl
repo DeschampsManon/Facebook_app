@@ -6,8 +6,11 @@ Accueil
 
 {% block content %}
     {{ parent() }}
-    <div class="fb-like" data-href="http://fb.digital-rooster.fr/likes"
-     data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+    <div class="app-data">
+        <div class="container">
+            <div class="fb-like" data-href="http://fb.digital-rooster.fr/likes" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+        </div>
+    </div>
     <section class="clearfix" id="explications">
         <div class="container">
             <article>

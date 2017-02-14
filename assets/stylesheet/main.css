@@ -254,6 +254,18 @@ p{
 	cursor: pointer;
 }
 
+.app-data{
+  position: fixed;
+  z-index: 3000;
+  width: 100%;
+  top: 80px;
+}
+
+.app-data .fb-like{
+  padding: 0 1.5rem;
+  float: right;
+}
+
 /********************* FORM *********************/
 
 label{
@@ -868,7 +880,8 @@ label{
   position: absolute;  
   margin: 0 auto;
   top: 3.2rem;
-  left: 33%;
+  left: 50%!important;
+  transform: translateX(-50%);
 }
 
 
