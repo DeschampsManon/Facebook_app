@@ -66,12 +66,6 @@
                 <a href="#!" id="export-result">Exporter au format xml</a>
             </div>
         </article>
-        <article class="clearfix admin-form padding-bot-20" style="clear:both;">
-            <div class="col tiers center-block" style="float:none;">
-                <a href="index.php?action=livedit" title="live-edit" class="btn btn-dark">Accéder au live edit</a>
-            </div>
-        </article>
-
     </div>
 </section>
 
