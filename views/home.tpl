@@ -6,16 +6,12 @@ Accueil
 
 {% block content %}
     {{ parent() }}
-<<<<<<< HEAD
-    <div class="fb-like" data-href="https://www.facebook.com/Concours-photo-pardon-maman-Community-1926870424202660/?ref=bookmarks"
-     data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-=======
+
     <div class="app-data">
         <div class="container">
-            <div class="fb-like" data-href="http://fb.digital-rooster.fr/likes" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+            <div class="fb-like" data-href="https://www.facebook.com/Concours-photo-pardon-maman-Community-1926870424202660/?ref=bookmarks" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
         </div>
     </div>
->>>>>>> 10527f6bf2455e6caa45bf689ef533cf296ec520
     <section class="clearfix" id="explications">
         <div class="container">
             <article>

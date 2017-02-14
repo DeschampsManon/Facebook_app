@@ -56,7 +56,7 @@
                 <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
                 <input type="file" accept="image/jpg, image/png" name="file">
             </label>
-            <input type="submit" value="Envoyer">
+            <input type="submit" value="Envoyer" class="margin-top-20">
         </form>
     </div>
 </section>
