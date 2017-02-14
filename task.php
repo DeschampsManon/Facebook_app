@@ -1,10 +1,5 @@
 <?php
 
-//TODO desactiver les notices
-ini_set('display_errors','on');
-error_reporting(E_ALL);
-
-
 require __DIR__.'/loaders/dependencies.php';
 require __DIR__.'/loaders/classLoader.php';
 require __DIR__.'/loaders/bdd.php';

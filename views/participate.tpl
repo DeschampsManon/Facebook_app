@@ -6,10 +6,10 @@
     <div class="container">
         <article class="col total">
 
-            {% if upload == true %}
+            {% if upload == 'oui' %}
                 <div id="boxmessage" class="good">{{ message }}</div>
-            {% elseif upload == false %}
-                <div id="boxmessage" class="red">{{ message }}</div>
+            {% elseif upload == 'non' %}
+                <div id="boxmessage" class="bad">{{ message }}</div>
             {% endif %}
 
             {% set count = 0 %}
@@ -34,9 +34,9 @@
                         <article class="col quart user-picture">
                             <form method="post" action="index.php?action=participate" id="form1">
                                 <label>
-                                    <!--<input type="radio" id="radio{{ countRadio }}" name="link_photo" class="hidden" value="{{ image }}" selected>-->
-                                    <div style="background-image:url('{{ image }}');"></div>
-                                    <input type="hidden" name="link_photo" value="{{ image }}">
+                                    <div style="background-image:url('{{ image.source }}');"></div>
+                                    <input type="hidden" name="link_photo" value="{{ image.source }}">
+                                    <input type="hidden" name="id_image" value="{{ image.id_photo }}"
                                 </label>
                                 <button type="submit" class="submit-picture">
                                     <i class="fa fa-check-circle-o"></i>

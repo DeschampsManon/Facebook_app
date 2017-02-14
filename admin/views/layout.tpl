@@ -90,8 +90,6 @@
         <script type="text/javascript" src="/assets/javascript/masonry.js"></script>
         <script>
 
-            // TODO Rajouter un bouton pour fermer le live edit
-
             $(function() {
 
                 $('.editable').on('click', function(e) {

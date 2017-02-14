@@ -14,18 +14,16 @@ class CompetitionController extends MyController {
         $end = date('U', strtotime($competition['end_date']));
 
         if($start < $today) {
-            echo 'ERREUR : La date de démarrage est inférieur à la date actuelle';
-            // TODO Erreur en variable de session !!
+            $_SESSION['ERR'] = "La date de démarrage est inférieur à la date actuelle";
         }else{
 
             if($start >= $end) {
-                echo 'ERREUR : La date de démarrage est supérieur ou égal à la date de fin';
-                // TODO Erreur en variable de session !!
+                $_SESSION['ERR'] = "La date de démarrage est supérieur ou égal à la date de fin";
             }else{
                 $this->competitionModel->createCompetition($competition);
                 $this->competitionModel->tryToStartCompetition();
 
-                echo 'VOTRE CONCOURS A BIEN ETE CRÉE';
+                $_SESSION['MESSAGE'] = "Votre concours a bien été crée !";
             }
         }
     }

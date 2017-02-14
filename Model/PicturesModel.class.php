@@ -4,7 +4,6 @@ class PicturesModel extends MyModel {
     public function __construct() { }
 
     public function getAllPictures() {
-        // TODO rajouter WHERE id concours = session id concours
         $request = MyController::$bdd->prepare('SELECT * FROM photos WHERE id_concours = ? ORDER BY creation_date DESC');
         $request->execute(array(
             $_SESSION['id_concours']

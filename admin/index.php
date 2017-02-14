@@ -1,7 +1,5 @@
 <?php
 
-//TODO deuxieme formulaire back end, live edit, nom sur les photos
-
 ini_set('display_errors','on');
 error_reporting(E_ALL);
 
@@ -41,6 +39,9 @@ if($action === '') {
 
     if($_SERVER['REQUEST_METHOD'] == "POST") {
 
+        $_SESSION['ERR'] = "";
+        $_SESSION['MESSAGE'] = "";
+
         if($_POST['action'] == 'competition') {
             $competition = array(
                 'name' => $_POST['name'],
@@ -60,15 +61,20 @@ if($action === '') {
             );
 
 
-
+            $_SESSION['MESSAGE'] = "Les modifications ont été prises en compte";
             MyController::updateFrontOffice($front);
         }
 
     }
 
+    $err = (isset($_SESSION['ERR'])) ? $_SESSION['ERR'] : "";
+    $message = (isset($_SESSION['MESSAGE'])) ? $_SESSION['MESSAGE'] : "";
+
     $frontloaded = MyController::loadFrontOffice();
     MyController::loadTemplate('admin.tpl', array(
-        'front' => $frontloaded
+        'front' => $frontloaded,
+        'erreur' => $err,
+        'message' => $message
     ));
 }else if($action === 'livedit') {
 

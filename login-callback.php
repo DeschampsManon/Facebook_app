@@ -5,8 +5,6 @@
 	// On charge toutes les fichiers nécéssaires au bon fonctionnement de l'application
 	require __DIR__.'/loaders/globalLoader.php';
 
-	// TODO-me Faire un try catch pour eviter une erreur fatale.
-
 	$helper = MyController::$fb->getRedirectLoginHelper();
 
 	// On demande un token pour acceder à l'API facebook

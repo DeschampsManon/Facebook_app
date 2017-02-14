@@ -1,9 +1,5 @@
 <?php
 
-    //TODO desactiver les notices
-	ini_set('display_errors','on');
-	error_reporting(E_ALL);
-
 	// On charge toutes les fichiers nécéssaires au bon fonctionnement de l'application
 	require __DIR__.'/loaders/globalLoader.php';
 
@@ -41,9 +37,6 @@ if($_SESSION['COMPETITION'] == 1) {
   if(isset($_GET['id']) && $_GET['id'] != "") {
       $instance = new PicturesController();
       $picture = $instance->getPicture($_GET['id']);
-
-      // TODO-me voir pour le bouton de partage qui ne marche pas
-      // TODO-me Le retirer de la page galery
 
       MyController::loadTemplate('photo.tpl', array(
           'picture' => $picture
@@ -99,32 +92,39 @@ if($_SESSION['COMPETITION'] == 1) {
 
           if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-              $generatedId = rand(1,10000).''.rand(1,10000).''.rand(1,10000);
-              $generatedLink = 'http://fb.digital-rooster.fr/'.$generatedId;
+              $user = UsersController::selectUserById($vars['user']['id']);
 
-              $pic = array(
-                  'id_photo' => $generatedId,
-                  'link_photo' => $_POST['link_photo'],
-                  'link_like' => $generatedLink,
-                  'id_user' => $vars['user']['id'],
-                  'id_concours' => $_SESSION['id_concours']
-              );
+              if($user['participation'] == 0) {
 
-              $instance = new PicturesController();
-              $instance->addPicture($pic);
+                  $generatedId = rand(1, 10000) . '' . rand(1, 10000) . '' . rand(1, 10000);
+                  $generatedLink = 'http://fb.digital-rooster.fr/' . $generatedId;
 
-              UsersController::setParticipation($vars['user']['id']);
+                  $pic = array(
+                      'id_photo' => $generatedId,
+                      'link_photo' => $_POST['link_photo'],
+                      'link_like' => 'http://facebook.fr/'.$_POST['id_image'],
+                      'id_user' => $vars['user']['id'],
+                      'id_concours' => $_SESSION['id_concours']
+                  );
 
-              $data = array(
-                  'message' => 'Je participe au concours pardon maman ! Rejoignez moi !',
-                  'link' => 'http://fb.digital-rooster.fr'
-              );
+                  $instance = new PicturesController();
+                  $instance->addPicture($pic);
 
-              $api->postRequest('/me/feed', $data);
+                  UsersController::setParticipation($vars['user']['id']);
 
-              // On charge le template participate.tpl
-              $instance = new CompetitionController();
-              $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+                  $data = array(
+                      'message' => 'Je participe au concours pardon maman ! Rejoignez moi !',
+                      'link' => 'http://fb.digital-rooster.fr'
+                  );
+
+                  $api->postRequest('/me/feed', $data);
+
+              }
+                  // On charge le template participate.tpl
+                  $instance = new CompetitionController();
+                  $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+
+
 
               MyController::loadTemplate('wait.tpl', array(
                   'end' => $competition['end_date']
@@ -149,9 +149,13 @@ if($_SESSION['COMPETITION'] == 1) {
 
                       $albumsNames[] = $album['name'];
 
+
                       foreach ($photos['data'] as $key => $photo) {
 
-                          $images[] = $photo['source'];
+                          $images[] = array(
+                              'source' => $photo['source'],
+                              'id_photo' => $photo['id']
+                          );
                       }
 
                       $imagesToLoad[$count] = $images;
@@ -163,15 +167,19 @@ if($_SESSION['COMPETITION'] == 1) {
                   $upload = '';
                   $message = '';
 
+
                   if(isset($_GET['upload'])) {
 
                       if ($_GET['upload'] == "Ok") {
-                          $upload = true;
+                          $upload = 'oui';
                           $message = "Votre photo a été ajoutée à l'album Concours photo pardon maman, vous
-                      pouvez désormais la séléctionner";
-                      } else {
-                          $upload = false;
+                      pouvez désormais la séléctionner pour participer au concours";
+                      } else if($_GET['upload'] == "Nok"){
+                          $upload = 'non';
                           $message = "Une erreur est survenue lors de l'envoi de votre photo, veuillez recommencer";
+                      } else if($_GET['upload'] == "type"){
+                          $upload = 'non';
+                          $message = "Le type d'image n'est pas accepté ! Les fichiers valides sont : jpg, png, gif";
                       }
 
                   }
@@ -213,8 +221,7 @@ if($_SESSION['COMPETITION'] == 1) {
   }
 
 }else{
-    // TODO Faire une page pour ça
-    echo "Pas de concours activé";
+    MyController::loadTemplate('none.tpl', array());
 }
 
 ?>

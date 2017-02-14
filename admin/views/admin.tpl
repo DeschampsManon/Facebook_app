@@ -5,6 +5,15 @@
 <section class="clearfix">
     <div class="container">
         <article class="col total admin-form">
+
+            {% if erreur != '' %}
+                <div id="boxmessage" class="bad">{{ erreur }}</div>
+            {% endif %}
+
+            {% if message != '' %}
+                <div id="boxmessage" class="good">{{ message }}</div>
+            {% endif %}
+
             <header class="clearfix relative total">
                 <hr>
                 <h3 class="acenter">Gérer le concours</h3>
