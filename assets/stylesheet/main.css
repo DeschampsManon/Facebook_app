@@ -912,6 +912,14 @@ label{
   margin: 2rem 0;
 }
 
+#export-result{
+  width: 195px;
+  font-size: 16px;
+  background: #b29e7e;
+  padding: 5.5px 12px;
+  color: #fff;
+}
+
 .livedit-submit{
   background: rgba(0,0,0,.5);
   position: fixed;
