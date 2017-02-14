@@ -48,7 +48,7 @@ Accueil
                 {% for picture in pictures %}
                 <article class="col tiers user-picture">
                     <div style="background-image:url('{{ picture.link_photo }}');">
-                        <div class="user-data">
+                        <div class="user-data hidden">
                             <div class="fb-like" data-href="{{ picture.link_like }}" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
                             <p class="author">{{ picture.id_user }}</p>
                         </div>
