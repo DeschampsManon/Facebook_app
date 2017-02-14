@@ -69,10 +69,14 @@ if($_SESSION['COMPETITION'] == 1) {
 
           $front = MyController::loadFrontOffice();
 
+          $instance = new CompetitionController();
+          $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+
           MyController::loadTemplate('home.tpl', array(
               'admin' => $_SESSION['admin'],
               'pictures' => $onlyThreePictures,
-              'front' => $front
+              'front' => $front,
+              'competition' => $competition
           ));
       }
       else if ($action === 'gallery'){
@@ -119,7 +123,12 @@ if($_SESSION['COMPETITION'] == 1) {
               $api->postRequest('/me/feed', $data);
 
               // On charge le template participate.tpl
-              MyController::loadTemplate('wait.tpl', array());
+              $instance = new CompetitionController();
+              $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+
+              MyController::loadTemplate('wait.tpl', array(
+                  'end' => $competition['end_date']
+              ));
 
           }else {
 

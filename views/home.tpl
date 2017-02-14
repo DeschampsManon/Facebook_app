@@ -6,7 +6,7 @@ Accueil
 
 {% block content %}
     {{ parent() }}
-    <div class="fb-like" data-href="http://fb.digital-rooster.fr/likes"
+    <div class="fb-like" data-href="https://www.facebook.com/Concours-photo-pardon-maman-Community-1926870424202660/?ref=bookmarks"
      data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
     <section class="clearfix" id="explications">
         <div class="container">
@@ -29,10 +29,10 @@ Accueil
             </article>
             <article class="col moitie">
                 <div class="relative">
-                    <h2>free tatoo</h2>
+                    <h2>{{ competition.reward }}</h2>
                     <h3>{{ front.title2 }}</h3>
                     <p>
-                        Aucun doute ! Tu seras notre prochain gagnant. Tu auras donc la possibilité de choisir l’un de nos talentueux artistes pour te faire tatouer gratuitement l’oeuvre de ton choix.
+                        {{ competition.text_reward }}
                     </p>
                 </div>
             </article>
