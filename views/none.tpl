@@ -7,7 +7,7 @@ Aucun concours
 {% block content %}
     <section class="clearfix" id="last_participants">
         <div class="container">
-            <header class="relative col total" style="min-height: 500px;">
+            <header class="relative col total" style="min-height: 100vh;">
                 <p id="information">Désolé, il n'y a aucun concours actuellement !<br>
 				Nous vous tiendrons informé dès lors qu'un concours sera disponible.<br><br>
 				</p>
