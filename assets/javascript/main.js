@@ -76,7 +76,7 @@ function search_user(){
         $(".no-result-found").removeClass("hidden");
       }else{
         $(this).show();
-        $(".no-result-found").removeClass("hidden");
+        $(".no-result-found").addClass("hidden");
       }
   });
 }
