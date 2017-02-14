@@ -7,7 +7,7 @@
 	$helper = MyController::$fb->getRedirectLoginHelper();
 
 	// On demande un token pour acceder à l'API facebook
-	$accessToken = $helper->getAccessToken();
+	$accessToken = $helper->getCanvasHelper();
 
 	if(isset($accessToken)) {
 	
