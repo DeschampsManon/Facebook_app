@@ -83,7 +83,26 @@
 
     $resultats = array_sort($resultats, 'likes');
 
-    $sheet->fromArray($resultats, null, 'A1');
+    $sheet->setCellValue('A1','Nom de l\'utilisateur');
+    $sheet->setCellValue('B1','URL de l\'image');
+    $sheet->setCellValue('C1','Nombre de likes');
+
+
+    $styleArray = array(
+        'font'=>array(
+            'bold'=>true
+        )
+    );
+
+    $sheet->getStyle('A1')->applyFromArray($styleArray);
+    $sheet->getStyle('B1')->applyFromArray($styleArray);
+    $sheet->getStyle('C1')->applyFromArray($styleArray);
+
+    $sheet->getColumnDimension('A')->setWidth('20');
+    $sheet->getColumnDimension('B')->setWidth('60');
+    $sheet->getColumnDimension('C')->setWidth('30');
+
+    $sheet->fromArray($resultats, null, 'A2');
 
     $writer = new PHPExcel_Writer_Excel2007($excel);
 
