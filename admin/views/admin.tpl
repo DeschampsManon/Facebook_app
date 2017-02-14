@@ -57,7 +57,7 @@
                 <h3 class="acenter">Résultats du concours</h3>
             </header>
             <div>
-                <label>Exporter les résultats du concours</label>
+                <!-- <label>Exporter les résultats du concours</label> -->
                 <a href="#!" id="export-result">Exporter au format xml</a>
             </div>
         </article>
