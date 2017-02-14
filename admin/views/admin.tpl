@@ -43,13 +43,23 @@
                 <h3 class="acenter">Réglages</h3>
             </header>
             <form method="post" action="index.php">
-                <label for="bgcolor">Background color</label>
-                <input type="text" id="bgcolor" placeholder="#000000" name="background" class="input-admin" value="{{ front.backgroundcolor }}">
+                <!-- <label for="bgcolor">Background color</label>
+                <input type="text" id="bgcolor" placeholder="#000000" name="background" class="input-admin" value="{{ front.backgroundcolor }}"> -->
                 <label for="cgu" class="label-textarea">CGU</label>
                 <textarea id="cgu" name="cgu" >{{ front.cgu }}</textarea>
                 <input type="submit">
                 <input type="hidden" name="action" value="front">
             </form>
+        </article>
+        <article class="col total admin-form padding-bot-20">
+            <header class="clearfix relative total">
+                <hr>
+                <h3 class="acenter">Résultats du concours</h3>
+            </header>
+            <div>
+                <label>Exporter les résultats du concours</label>
+                <a href="#!" id="export-result">Exporter au format xml</a>
+            </div>
         </article>
         <article class="clearfix admin-form padding-bot-20" style="clear:both;">
             <div class="col tiers center-block" style="float:none;">

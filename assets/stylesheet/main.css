@@ -46,7 +46,7 @@ a{
   text-align: center;
   padding: 10px;
   margin-top: 25px;
-  background: #20E689;
+  background: #b29e7e;
 }
 
 .bad {
@@ -910,4 +910,42 @@ label{
   padding: 5.5px 20px;
   margin: 2rem 0;
 }
+
+#export-result{
+  width: 195px;
+  font-size: 16px;
+  background: #b29e7e;
+  padding: 5.5px 12px;
+  color: #fff;
+}
+
+.livedit-submit{
+  background: rgba(0,0,0,.5);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.livedit-submit .container{
+  padding: 0 1.2rem;
+}
+
+.livedit-submit #close,
+.livedit-submit #validate{
+  background: #272727;
+  float: left;
+  color: #fff;
+  text-transform: uppercase;
+  padding: 1rem 1.5rem;
+  font-size: 14px;
+  border: 0 transparent solid;
+}
+
+.livedit-submit #validate{
+  float: right;
+}
+
+
 

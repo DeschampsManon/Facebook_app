@@ -59,10 +59,14 @@ Accueil
         </footer>
     </div>
 </section>
-<a id="close" class="close" href="index.php">Fermer l'editeur</a>
-<button id="validate">Enregistrer les modifications</button>
-<form id="form" style="display: none;">
-</form>
+<section class="clearfix livedit-submit">
+    <div class="container">
+        <a id="close" class="close" href="index.php">Fermer l'editeur</a>
+        <button id="validate">Enregistrer les modifications</button>
+        <form id="form" style="display: none;"></form>
+    </div>
+</section>
+
 {% endblock %}
 
 {% block script %}

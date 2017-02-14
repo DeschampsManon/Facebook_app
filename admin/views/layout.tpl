@@ -15,7 +15,7 @@
                 top: -10px;
             }
 
-            #validate {
+            /*#validate {
                 position: fixed;
                 bottom: 15px;
                 left: 15px;
@@ -39,7 +39,7 @@
                 border-radius: 5px;
                 color: #FFF;
                 padding: 5px;
-            }
+            }*/
 
             .acenter {
                 left: 50% !important;
