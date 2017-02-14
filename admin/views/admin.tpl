@@ -34,8 +34,8 @@
                 <h3 class="acenter">Réglages</h3>
             </header>
             <form method="post" action="index.php">
-                <label for="bgcolor">Background color</label>
-                <input type="text" id="bgcolor" placeholder="#000000" name="background" class="input-admin" value="{{ front.backgroundcolor }}">
+                <!-- <label for="bgcolor">Background color</label>
+                <input type="text" id="bgcolor" placeholder="#000000" name="background" class="input-admin" value="{{ front.backgroundcolor }}"> -->
                 <label for="cgu" class="label-textarea">CGU</label>
                 <textarea id="cgu" name="cgu" >{{ front.cgu }}</textarea>
                 <input type="submit">
