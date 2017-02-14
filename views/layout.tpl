@@ -49,12 +49,20 @@
 
         <footer class="main-footer">
             <div class="container">
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
+                        </li>
+                        {% if admin == 1 %}
+                            <li>
+                                <a href="admin/index.php">Administration</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
                 {% block footer %}
                 {% endblock %}
-                <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
-                {% if admin == 1 %}
-                    <a href="admin/index.php">Administration</a>
-                {% endif %}
             </div>
         </footer>
         <script type="text/javascript" src="/assets/javascript/jquery-3.1.1.min.js"></script>

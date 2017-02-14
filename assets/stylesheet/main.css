@@ -762,6 +762,14 @@ label{
   padding: 15px 0;
 }
 
+.main-footer li{
+  float: left;
+}
+
+.main-footer li:last-child{
+  float: right;
+}
+
 .main-footer a{
   color: #272727;
   text-transform: uppercase;
@@ -769,6 +777,34 @@ label{
 
 .main-footer a:hover{
   color: #b29e7e;
+}
+
+/********************* CGU *********************/
+
+#cgu .container{
+  background-color: #272727;
+  min-height: 100vh;
+  color: #fff;
+}
+
+#cgu > div > header{
+  background-color: #272727;
+  padding: 3rem 0;
+}
+
+#cgu hr{
+  border: .2rem solid transparent;
+  border-bottom-color: rgba(255,255,255,.5);
+  margin: 2rem;
+}
+
+#cgu h3{
+  color: rgba(255,255,255,.5);
+  background-color: #272727;
+  position: absolute;  
+  margin: 0 auto;
+  top: 4.2rem;
+  left: 27.5%;
 }
 
 /********************* ADMIN *********************/
