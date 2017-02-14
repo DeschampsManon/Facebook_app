@@ -12,7 +12,7 @@ MyController::$fb = new Facebook\Facebook([
     'default_graph_version' => 'v2.8',
 ]);
 
-MyController::$fb->setDefaultAccessToken('325674481145757|b07143c0ac82e515af99ca29cd3b1c55');
+MyController::$fb->setDefaultAccessToken('325674481145757|');
 
 // On demande une instance sur la class ApiController qui permet de lancer une requette à l'API Facebook
 $api = ApiController::getInstance();
