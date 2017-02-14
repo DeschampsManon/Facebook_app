@@ -766,7 +766,7 @@ label{
   float: left;
 }
 
-.main-footer li:last-child{
+.main-footer .admin-link{
   float: right;
 }
 
@@ -805,6 +805,13 @@ label{
   margin: 0 auto;
   top: 4.2rem;
   left: 27.5%;
+}
+
+#cgu h2{
+  font-family: raleway;
+  font-size: 15px;
+  font-weight: bolder;
+  padding-bottom: 2rem!important;
 }
 
 /********************* ADMIN *********************/

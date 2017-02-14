@@ -55,7 +55,7 @@
                             <a href="index.php?action=cgu">Conditions générales d'utilisation</a>
                         </li>
                         {% if admin == 1 %}
-                            <li>
+                            <li class="admin-link">
                                 <a href="admin/index.php">Administration</a>
                             </li>
                         {% endif %}
