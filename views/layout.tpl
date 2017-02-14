@@ -18,7 +18,7 @@
             <div class="container">
                 <nav class="clearfix">
                     <h1>
-                        <a href="index.php?action=home" title="home">Accueil</a>
+                        <a href="index.php?action=home" title="home">Pardon maman</a>
                     </h1>
                     <ul>
                         <li>

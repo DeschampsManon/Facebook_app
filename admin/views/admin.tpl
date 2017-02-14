@@ -2,20 +2,6 @@
 
 {% block content %}
 
-{% block head %}
-    <style>
-        h3{
-            color: rgba(255,255,255,.5);
-            background-color: #272727;
-            position: absolute;
-            margin: 0 auto;
-            top: 4.2rem;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    </style>
-{% endblock %}
-
 <section class="clearfix">
     <div class="container">
         <article class="col total admin-form">
@@ -28,10 +14,10 @@
                 <input type="text" name="name" class="input-admin" value="">
 
                 <label for="startDate">Date de début</label>
-                <input type="text" name="starting_date" class="input-admin" value="">
+                <input type="date" name="starting_date" class="input-admin" value="">
 
                 <label for="endDate">Date de fin</label>
-                <input type="text" name="end_date" class="input-admin" value="">
+                <input type="date" name="end_date" class="input-admin" value="">
 
                 <label for="reward">Récompense</label>
                 <input type="text" name="reward" class="input-admin" value="">
