@@ -224,8 +224,43 @@ if($_SESSION['COMPETITION'] == 1) {
       }
 
       else {
-          // On charge le template index.tpl avec les variables du tableau précédent
-          MyController::loadTemplate('index.tpl', $vars);
+          // On charge le template home.tpl
+
+          $instance = new PicturesController();
+          $pictures = $instance->getAllPictures();
+
+          $onlyThreePictures[] = $pictures[0];
+          $onlyThreePictures[] = $pictures[1];
+          $onlyThreePictures[] = $pictures[2];
+
+          $counter = 0;
+          foreach($onlyThreePictures as $picture) {
+              if($picture == "") {
+                  unset($onlyThreePictures[$counter]);
+              }
+
+              $counter++;
+          }
+
+          $count = 0;
+          foreach($onlyThreePictures as $picture) {
+              $user = UsersController::selectUserById($picture['id_user']);
+              $onlyThreePictures[$count]['id_user'] = $user['name'].' '.$user['first_name'];
+              $count++;
+          }
+
+
+          $front = MyController::loadFrontOffice();
+
+          $instance = new CompetitionController();
+          $competition = $instance->getCompetitionById($_SESSION['id_concours']);
+
+          MyController::loadTemplate('home.tpl', array(
+              'admin' => $_SESSION['admin'],
+              'pictures' => $onlyThreePictures,
+              'front' => $front,
+              'competition' => $competition
+          ));
       }
   }
 

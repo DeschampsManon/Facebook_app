@@ -70,7 +70,7 @@
 			if($error) {
 				
 				$helper = MyController::$fb->getRedirectLoginHelper();
-				$loginUrl = $helper->getLoginUrl('http://fb.digital-rooster.fr/login-callback.php', $scope); 
+				$loginUrl = $helper->getLoginUrl('https://fb.digital-rooster.fr/login-callback.php', $scope);
 
 				// On redemande à l'utilisateur de l'accepter une fois
 				if($_SESSION['retryScope'] == 0) {

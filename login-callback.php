@@ -1,5 +1,6 @@
-<?php 
-
+<?php
+    ini_set('display_errors','on');
+    error_reporting(E_ALL);
 
 	// On charge toutes les fichiers nécéssaires au bon fonctionnement de l'application
 	require __DIR__.'/loaders/globalLoader.php';
@@ -7,7 +8,7 @@
 	$helper = MyController::$fb->getRedirectLoginHelper();
 
 	// On demande un token pour acceder à l'API facebook
-	$accessToken = $helper->getCanvasHelper();
+	$accessToken = $helper->getAccessToken();
 
 	if(isset($accessToken)) {
 	
@@ -37,6 +38,6 @@
 		$user->addUser($userInfos);
 
 		// On redirige l'utilisateur vers l'index de l'application
-		header('Location: index.php');
+		header('Location: https://fb.digital-rooster.fr/index.php');
 	}
 ?>
